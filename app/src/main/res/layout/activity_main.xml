@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+<TextView
+    android:id="@+id/textTitle"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    android:background="@color/primary"
+    android:gravity="center_vertical"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:text = "@string/app_name"
+    android:textColor="@color/white"
+    android:textSize="20sp"
+    app:layout_constraintTop_toTopOf="parent"
+    />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="50dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/slogan"
+                android:textColor="@color/primary"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_sign_in"
+                android:textColor="@color/accent"
+                android:textSize="18sp" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                >
+                <LinearLayout
+                    android:id="@+id/pseudoZone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:background="@drawable/bg_input"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/ic_account_circle"
+                        app:tint="@color/accent" />
+                    <EditText
+                        android:id="@+id/txtPseudo"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@null"
+                        android:hint="@string/votre_pseudo"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textColor="@color/primary_text"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="41dp"
+                    android:background="@color/white"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:layout_marginLeft="41dp"
+                    android:text="@string/pseudo"
+                    android:textAllCaps="true"
+                    android:textColor="@color/secondary_text"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/pseudoZone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/pseudoZone"
+                    />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                >
+                <LinearLayout
+                    android:id="@+id/passwordZone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/bg_input"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/ic_lock"
+                        app:tint="@color/accent" />
+                    <EditText
+                        android:id="@+id/txtPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@null"
+                        android:hint="@string/password_hint"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="no"
+                        android:inputType="textPassword"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textColor="@color/primary_text"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="41dp"
+                    android:background="@color/white"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:layout_marginLeft="41dp"
+                    android:text="@string/password"
+                    android:textAllCaps="true"
+                    android:textColor="@color/secondary_text"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/passwordZone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/passwordZone"
+                    />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/bg_button"
+                android:text="@string/text_sign_in"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/don_t_have_account"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="17sp"/>
+
+                <TextView
+                    android:id="@+id/textCreateAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@string/create_a_new_account"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_dark"
+                    android:layout_marginLeft="4dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

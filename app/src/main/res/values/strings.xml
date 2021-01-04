@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">DepansMwen</string>
+    <string name="slogan">Anrejistre tout depans wap fe</string>
+    <string name="text_sign_in">Se Connecter</string>
+    <string name="pseudo">Pseudo</string>
+    <string name="votre_pseudo">votre pseudo</string>
+    <string name="password_hint">**********</string>
+    <string name="password">password</string>
+    <string name="don_t_have_account">Don\'t have account</string>
+    <string name="create_a_new_account">Create a new account</string>
+    <string name="nouveau_compte_utilisateur">Nouveau Compte Utilisateur</string>
+    <string name="s_inscrire">S\'inscrire</string>
+    <string name="username_hint">Pierre Etienne</string>
+    <string name="pseudo_hint">Pierro7</string>
+    <string name="username">Username</string>
+    <string name="votre_email">Votre Email</string>
+    <string name="mail">Email</string>
+    <string name="confpassword">Confirm Password</string>
+    <string name="already_have_account">Already have accout</string>
+    <string name="msg_champVide">Remplissez tout les Champs</string>
+    <string name="msg_succes_creation_compte">Compte Utilisateur Cree !!</string>
+    <string name="msg_echec_creation_compte">La creation du compte a echoue</string>
+    <string name="msg_pseudo_already_use">Pseudo deja Utilise</string>
+    <string name="msg_password_not_same">Les mots de passe ne concordent pas</string>
+    <string name="msg_connection_reussi">Utilisateur Connecte avec succes</string>
+    <string name="msg_connection_echec">Pseudo/password incorrect</string>
+    <string name="compte">Compte</string>
+    <string name="transaction">Transaction</string>
+    <string name="rapport_statistique">Rapport Statistique</string>
+</resources>
