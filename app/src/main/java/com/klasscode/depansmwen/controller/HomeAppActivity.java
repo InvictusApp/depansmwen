@@ -1,8 +1,10 @@
-package com.klasscode.depansmwen;
+package com.klasscode.depansmwen.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.klasscode.depansmwen.R;
 
 public class HomeAppActivity extends AppCompatActivity {
 
