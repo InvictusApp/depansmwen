@@ -72,8 +72,8 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
         values.put(CREATE_AT,account.getCreateAt().toString());
         long f = db.insert(TABLE_ACCOUNT,null, values);
         db.close();
-        Log.i("TABLE ACCOUNT","insert success " + f);
-        return true;
+       // Log.i("TABLE ACCOUNT","insert success " + f);
+        return (f > 0) ? true : false;
     }
 
     @Override
@@ -88,7 +88,7 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
         values.put(IS_ACTIVE,account.isActive());
         values.put(UPDATE_AT,account.getUpdateAt().toString());
         long f = db.update(TABLE_ACCOUNT, values, KEY_ID + " = ?", new String[]{String.valueOf(account.getId())});
-        return true;
+        return (f != 0) ? true : false;
     }
 
     @Override
@@ -125,8 +125,6 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
         String selectQuery = "SELECT * FROM " + TABLE_ACCOUNT;
         Cursor cursor = db.rawQuery(selectQuery,null);
 
-
-
         if(cursor.moveToFirst()){
             do{
                 Account account = new Account();
@@ -153,8 +151,8 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
     @Override
     public boolean delete(Account account) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_ACCOUNT,KEY_ID + " = ?", new String[]{String.valueOf(account.getId())});
+        long f = db.delete(TABLE_ACCOUNT,KEY_ID + " = ?", new String[]{String.valueOf(account.getId())});
         db.close();
-        return true;
+        return (f > 0) ? true : false;
     }
 }
