@@ -9,9 +9,13 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.DepansMwen">
+<<<<<<< HEAD
         <activity android:name=".AccountActivity"></activity>
         <activity android:name=".HomeAppActivity" />
         <activity android:name=".HomeApp" />
+=======
+        <activity android:name=".HomeAppActivity" />
+>>>>>>> 6a065057d7a09ed8620c33d0e57fca4ca94a4194
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

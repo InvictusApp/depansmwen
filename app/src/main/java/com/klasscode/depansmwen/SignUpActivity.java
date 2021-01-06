@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 import com.klasscode.depansmwen.Model.UserDao;
 import com.klasscode.depansmwen.Model.bean.User;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -28,6 +31,18 @@ public class SignUpActivity extends AppCompatActivity {
     private Button btnInscription;
     private User user;
     private UserDao dao;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("DEBUG", "Signup Activity as destroy");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("DEBUG", "Signup Activity is stop");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,35 +70,43 @@ public class SignUpActivity extends AppCompatActivity {
                 String password = txtPassword.getText().toString();
                 String confPassword = txtConfPassword.getText().toString();
 
-               if(username.equals("") || pseudo.equals("") || email.equals("") || password.equals("") || confPassword.equals("")){
-                   Toast.makeText(SignUpActivity.this,getString(R.string.msg_champVide),Toast.LENGTH_LONG).show();
-               }else{
-                   if(password.equals(confPassword)){
-                       boolean checkPseudo = dao.checkPseudo(pseudo);
-                       if(checkPseudo==false){
-                            user= new User(username,pseudo,email,password,new Date());
-                            boolean insert = dao.insert(user);
-                            if(insert == true){
-                                //Popup
-                                Toast.makeText(SignUpActivity.this, R.string.msg_succes_creation_compte,Toast.LENGTH_LONG).show();
-                                txtUsername.setText("");
-                                txtPassword.setText("");
-                                txtPseudo.setText("");
-                                txtEmail.setText("");
-                                txtConfPassword.setText("");
-                                Intent intent = new Intent(SignUpActivity.this,MainActivity.class);
-                                startActivity(intent);
+                if (username.equals("") || pseudo.equals("") || email.equals("") || password.equals("") || confPassword.equals("")) {
+                    Toast.makeText(SignUpActivity.this, getString(R.string.msg_champVide), Toast.LENGTH_LONG).show();
+                } else if (pseudo.length() < 3) {
+                    Toast.makeText(SignUpActivity.this, "Pseudo Trop Court 3 caracteres au moins", Toast.LENGTH_LONG).show();
+                } else if (password.length() < 5) {
+                    Toast.makeText(SignUpActivity.this, "Password Trop Court 5 caracteres au moins", Toast.LENGTH_LONG).show();
+                } else if (password.equals(confPassword)) {
 
-                            }else{
-                                Toast.makeText(SignUpActivity.this, R.string.msg_echec_creation_compte,Toast.LENGTH_LONG).show();
-                            }
-                       }else{
-                           Toast.makeText(SignUpActivity.this, getString(R.string.msg_pseudo_already_use),Toast.LENGTH_SHORT).show();
-                       }
-                   }else{
-                       Toast.makeText(SignUpActivity.this, getString(R.string.msg_password_not_same),Toast.LENGTH_SHORT).show();
-                   }
-               }
+                    boolean checkPseudo = dao.checkPseudo(pseudo);
+                    if (!checkPseudo) {
+
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                        String date = dateFormat.format(new Date());
+
+                        Log.i("DEBUG", "date actuelle " + date);
+
+                        user = new User(username, pseudo, email, password, date, null);
+                        boolean insert = dao.insert(user);
+                        if (insert) {
+                            //Popup
+                            Toast.makeText(SignUpActivity.this, R.string.msg_succes_creation_compte, Toast.LENGTH_LONG).show();
+                            txtUsername.setText("");
+                            txtPassword.setText("");
+                            txtPseudo.setText("");
+                            txtEmail.setText("");
+                            txtConfPassword.setText("");
+                            SignUpActivity.this.finish();
+
+                        } else {
+                            Toast.makeText(SignUpActivity.this, R.string.msg_echec_creation_compte, Toast.LENGTH_LONG).show();
+                        }
+                    } else {
+                        Toast.makeText(SignUpActivity.this, getString(R.string.msg_pseudo_already_use), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(SignUpActivity.this, getString(R.string.msg_password_not_same), Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -102,5 +125,6 @@ public class SignUpActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
     }
 }

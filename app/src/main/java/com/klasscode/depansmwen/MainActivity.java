@@ -9,10 +9,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.klasscode.depansmwen.Model.AccountDao;
 import com.klasscode.depansmwen.Model.UserDao;
+import com.klasscode.depansmwen.Model.bean.Account;
+import com.klasscode.depansmwen.Model.bean.Transaction;
 import com.klasscode.depansmwen.Model.bean.User;
 
+<<<<<<< HEAD
 import androidx.appcompat.app.AppCompatActivity;
+=======
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+>>>>>>> 6a065057d7a09ed8620c33d0e57fca4ca94a4194
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,25 +32,45 @@ public class MainActivity extends AppCompatActivity {
     private TextView createAccout;
 
     private UserDao dao;
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("DEBUG","Main Activity as destroy");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("DEBUG","Main Activity is stop");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        dao = new UserDao(this);
+
         txtPseudo = (EditText) findViewById(R.id.txtPseudo);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
-        dao = new UserDao(this);
+
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.i("DEBUG","Event ok");
                 String pseudo = txtPseudo.getText().toString();
                 String password = txtPassword.getText().toString();
 
                 if(pseudo.equals("") || password.equals("")){
                     Toast.makeText(MainActivity.this,R.string.msg_champVide,Toast.LENGTH_SHORT).show();
                 }else{
+
                     User user = dao.checkLogin(pseudo,password);
                     if(user != null){
                         Toast.makeText(MainActivity.this, R.string.msg_connection_reussi,Toast.LENGTH_SHORT).show();
@@ -50,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
                         txtPassword.setText("");
                         //Lancer la fenetre principal
                         Intent intent = new Intent(MainActivity.this,HomeAppActivity.class);
-                        intent.putExtra("userConnected",user);
                         startActivity(intent);
 
                     }else{
@@ -60,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
                         Log.i("ERROR","User not Connected");
                     }
                 }
+
+
             }
         });
         createAccout = (TextView) findViewById(R.id.textCreateAccount);
