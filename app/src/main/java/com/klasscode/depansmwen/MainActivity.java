@@ -30,75 +30,45 @@ public class MainActivity extends AppCompatActivity {
     private TextView createAccout;
 
     private UserDao dao;
-    //TEST ACCOUNT
-    private AccountDao adao;
-    private Transaction tdao;
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("DEBUG","Main Activity as destroy");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("DEBUG","Main Activity is stop");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //TEST
-        adao = new AccountDao(this);
-        Account a ;
-        /*Account a = new Account("UNIBANK",12345,500,true);
-        a.setIdUser(1);
-        a.setCreateAt(new Date());
 
-        boolean insert = adao.insert(a);
-        Log.i("TEST",""+insert);*/
-        //GET
-        /*a = adao.get(1);
-        Log.i("TESTGET","NAME "+a.getBankName()+" "+a.getNumberAccount()+" "+a.getBalance()+ " "+a.createAt());*/
+        dao = new UserDao(this);
 
-        //update
-       /* a = new Account("SogeBANK",12345,500,true);
-        a.setIdUser(1);
-        a.setId(1);
-        a.setUpdateAt(new Date());
-        adao.update(a);
-        Account a1 = adao.get(1);
-        Log.i("TESTGET","NAME Apres "+a1.getBankName());*/
-
-        //List
-       /* List<Account> list ;
-        list = adao.getAll();
-        for(int i =0; i < list.size(); i++) {
-            Account a2 = list.get(i);
-            Log.i("TESTAll", a2.getId()+"name " + a2.getBankName());
-        }*/
-
-        //delete
-        /*a = new Account();
-        a.setId(3);
-        adao.delete(a);
-        List<Account> list2 ;
-        list2 = adao.getAll();
-        for(int i =0; i < list2.size(); i++) {
-            Account a2 = list2.get(i);
-            Log.i("TESTAll", a2.getId()+"name " + a2.getBankName());
-        }*/
-
-        //TEST Transaction
-        Transaction t;
-        t = new Transaction(1);
         txtPseudo = (EditText) findViewById(R.id.txtPseudo);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
-        dao = new UserDao(this);
 
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.i("DEBUG","Event ok");
                 String pseudo = txtPseudo.getText().toString();
                 String password = txtPassword.getText().toString();
 
                 if(pseudo.equals("") || password.equals("")){
                     Toast.makeText(MainActivity.this,R.string.msg_champVide,Toast.LENGTH_SHORT).show();
                 }else{
+
                     User user = dao.checkLogin(pseudo,password);
                     if(user != null){
                         Toast.makeText(MainActivity.this, R.string.msg_connection_reussi,Toast.LENGTH_SHORT).show();
@@ -107,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
                         txtPassword.setText("");
                         //Lancer la fenetre principal
                         Intent intent = new Intent(MainActivity.this,HomeAppActivity.class);
-                        intent.putExtra("userConnected",user);
                         startActivity(intent);
 
                     }else{
@@ -117,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
                         Log.i("ERROR","User not Connected");
                     }
                 }
+
+
             }
         });
         createAccout = (TextView) findViewById(R.id.textCreateAccount);
