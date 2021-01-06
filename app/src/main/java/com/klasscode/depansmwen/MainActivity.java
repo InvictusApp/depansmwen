@@ -51,22 +51,32 @@ public class MainActivity extends AppCompatActivity {
         Log.i("TESTGET","NAME "+a.getBankName()+" "+a.getNumberAccount()+" "+a.getBalance()+ " "+a.createAt());*/
 
         //update
-        a = new Account("SogeBANK",12345,500,true);
+       /* a = new Account("SogeBANK",12345,500,true);
         a.setIdUser(1);
         a.setId(1);
         a.setUpdateAt(new Date());
         adao.update(a);
         Account a1 = adao.get(1);
-        Log.i("TESTGET","NAME Apres "+a1.getBankName());
+        Log.i("TESTGET","NAME Apres "+a1.getBankName());*/
 
         //List
-        List<Account> list ;
+       /* List<Account> list ;
         list = adao.getAll();
         for(int i =0; i < list.size(); i++) {
             Account a2 = list.get(i);
             Log.i("TESTAll", a2.getId()+"name " + a2.getBankName());
-        }
+        }*/
 
+        //delete
+        /*a = new Account();
+        a.setId(3);
+        adao.delete(a);
+        List<Account> list2 ;
+        list2 = adao.getAll();
+        for(int i =0; i < list2.size(); i++) {
+            Account a2 = list2.get(i);
+            Log.i("TESTAll", a2.getId()+"name " + a2.getBankName());
+        }*/
         txtPseudo = (EditText) findViewById(R.id.txtPseudo);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);

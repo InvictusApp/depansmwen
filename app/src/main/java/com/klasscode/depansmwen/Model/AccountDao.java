@@ -106,14 +106,14 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
            account.setNumberAccount(cursor.getLong(3));
            account.setBalance(cursor.getLong(4));
           // account.setActive((boolean)cursor.getString(5));
-           /*SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+           SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
            Date d = null;
            try {
                d = dateFormat.parse(cursor.getString(6));
            } catch (ParseException e) {
                e.printStackTrace();
            }
-           account.setCreateAt(d);*/
+           account.setCreateAt(d);
        }
         return account;
     }
@@ -136,14 +136,14 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
                 account.setNumberAccount(cursor.getLong(3));
                 account.setBalance(cursor.getLong(4));
                 // account.setActive((boolean)cursor.getString(5));
-                /*SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 Date d = null;
                 try {
                     d = dateFormat.parse(cursor.getString(6));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                account.setCreateAt(d);*/
+                account.setCreateAt(d);
                 accountList.add(account);
             }while(cursor.moveToNext());
         }
@@ -152,6 +152,9 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
 
     @Override
     public boolean delete(Account account) {
-        return false;
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_ACCOUNT,KEY_ID + " = ?", new String[]{String.valueOf(account.getId())});
+        db.close();
+        return true;
     }
 }
