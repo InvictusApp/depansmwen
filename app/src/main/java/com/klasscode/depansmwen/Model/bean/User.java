@@ -1,6 +1,7 @@
 package com.klasscode.depansmwen.Model.bean;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class User implements Serializable {
@@ -10,24 +11,27 @@ public class User implements Serializable {
     private String pseudo;
     private String email;
     private String password;
-    private Date createAt;
+    private String createAt;
+    private String updateAt;
 
     public User(){}
-    public User(int id, String username, String pseudo, String email,String password, Date createAt) {
+    public User(int id, String username, String pseudo, String email,String password, String createAt, String updateAt) {
         this.id = id;
         this.username = username;
         this.pseudo = pseudo;
         this.email = email;
         this.password = password;
         this.createAt = createAt;
+        this.updateAt = updateAt;
     }
 
-    public User(String username, String pseudo, String email,String password, Date createAt) {
+    public User(String username, String pseudo, String email,String password, String createAt, String updateAt) {
         this.username = username;
         this.pseudo = pseudo;
         this.email= email;
         this.password = password;
         this.createAt = createAt;
+        this.updateAt = updateAt;
     }
 
     public int getId() {
@@ -70,12 +74,20 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Date getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
+    }
+
+    public String getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(String updateAt) {
+        this.updateAt = updateAt;
     }
 
     @Override
