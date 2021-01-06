@@ -27,4 +27,12 @@
     <string name="compte">Compte</string>
     <string name="transaction">Transaction</string>
     <string name="rapport_statistique">Rapport Statistique</string>
+    <string name="welcome">Bonjour, </string>
+    <string name="user_logon_profil_picture">user logon profil picture</string>
+    <string name="menu_icon">menu icon</string>
+    <string name="cash">cash</string>
+    <string name="account_number">Nombre de Compte</string>
+    <string name="bank_account_cashout">Montant Bancaire Dépensé</string>
+    <string name="cash_cashout">Montant Cash Dépensé</string>
+    <string name="searchAccountPlaceholder">Rechercher un Compte</string>
 </resources>

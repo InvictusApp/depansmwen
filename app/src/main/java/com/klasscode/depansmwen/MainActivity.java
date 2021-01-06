@@ -1,7 +1,5 @@
 package com.klasscode.depansmwen;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +11,8 @@ import android.widget.Toast;
 
 import com.klasscode.depansmwen.Model.UserDao;
 import com.klasscode.depansmwen.Model.bean.User;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity {

@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.DepansMwen">
-        <activity android:name=".HomeAppActivity"></activity>
+        <activity android:name=".AccountActivity"></activity>
+        <activity android:name=".HomeAppActivity" />
         <activity android:name=".HomeApp" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity">
