@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.klasscode.depansmwen.Model.AccountDao;
 import com.klasscode.depansmwen.Model.UserDao;
 import com.klasscode.depansmwen.Model.bean.Account;
+import com.klasscode.depansmwen.Model.bean.Transaction;
 import com.klasscode.depansmwen.Model.bean.User;
 
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private UserDao dao;
     //TEST ACCOUNT
     private AccountDao adao;
+    private Transaction tdao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
             Account a2 = list2.get(i);
             Log.i("TESTAll", a2.getId()+"name " + a2.getBankName());
         }*/
+
+        //TEST Transaction
+        Transaction t;
+        t = new Transaction(1);
         txtPseudo = (EditText) findViewById(R.id.txtPseudo);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
