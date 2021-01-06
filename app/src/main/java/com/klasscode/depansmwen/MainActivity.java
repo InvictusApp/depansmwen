@@ -11,8 +11,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.klasscode.depansmwen.Model.AccountDao;
 import com.klasscode.depansmwen.Model.UserDao;
+import com.klasscode.depansmwen.Model.bean.Account;
+import com.klasscode.depansmwen.Model.bean.Transaction;
 import com.klasscode.depansmwen.Model.bean.User;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView createAccout;
 
     private UserDao dao;
+
 
     @Override
     protected void onDestroy() {
@@ -35,15 +43,20 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         Log.i("DEBUG","Main Activity is stop");
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         dao = new UserDao(this);
+
         txtPseudo = (EditText) findViewById(R.id.txtPseudo);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
+
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
