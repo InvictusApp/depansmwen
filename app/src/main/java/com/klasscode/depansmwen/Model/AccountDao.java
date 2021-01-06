@@ -14,6 +14,7 @@ import com.klasscode.depansmwen.Model.bean.Account;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -105,22 +106,48 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
            account.setNumberAccount(cursor.getLong(3));
            account.setBalance(cursor.getLong(4));
           // account.setActive((boolean)cursor.getString(5));
-           SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+           /*SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
            Date d = null;
            try {
                d = dateFormat.parse(cursor.getString(6));
            } catch (ParseException e) {
                e.printStackTrace();
            }
-           account.setCreateAt(d);
+           account.setCreateAt(d);*/
        }
         return account;
     }
 
     @Override
     public List<Account> getAll() {
+        List<Account> accountList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_ACCOUNT;
+        Cursor cursor = db.rawQuery(selectQuery,null);
 
-        return null;
+
+
+        if(cursor.moveToFirst()){
+            do{
+                Account account = new Account();
+                account.setId(cursor.getInt(0));
+                account.setIdUser(cursor.getInt(1));
+                account.setBankName(cursor.getString(2));
+                account.setNumberAccount(cursor.getLong(3));
+                account.setBalance(cursor.getLong(4));
+                // account.setActive((boolean)cursor.getString(5));
+                /*SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                Date d = null;
+                try {
+                    d = dateFormat.parse(cursor.getString(6));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                account.setCreateAt(d);*/
+                accountList.add(account);
+            }while(cursor.moveToNext());
+        }
+        return accountList;
     }
 
     @Override

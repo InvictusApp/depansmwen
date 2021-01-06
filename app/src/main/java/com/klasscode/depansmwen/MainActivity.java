@@ -16,7 +16,9 @@ import com.klasscode.depansmwen.Model.UserDao;
 import com.klasscode.depansmwen.Model.bean.Account;
 import com.klasscode.depansmwen.Model.bean.User;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -44,18 +46,26 @@ public class MainActivity extends AppCompatActivity {
 
         boolean insert = adao.insert(a);
         Log.i("TEST",""+insert);*/
-
-        a = adao.get(1);
-        Log.i("TESTGET","NAME "+a.getBankName()+" "+a.getNumberAccount()+" "+a.getBalance()+ " "+a.isActive());
+        //GET
+        /*a = adao.get(1);
+        Log.i("TESTGET","NAME "+a.getBankName()+" "+a.getNumberAccount()+" "+a.getBalance()+ " "+a.createAt());*/
 
         //update
-        /*a = new Account("SogeBANK",12345,500,true);
+        a = new Account("SogeBANK",12345,500,true);
         a.setIdUser(1);
         a.setId(1);
         a.setUpdateAt(new Date());
         adao.update(a);
         Account a1 = adao.get(1);
-        Log.i("TESTGET","NAME Apres "+a1.getBankName());*/
+        Log.i("TESTGET","NAME Apres "+a1.getBankName());
+
+        //List
+        List<Account> list ;
+        list = adao.getAll();
+        for(int i =0; i < list.size(); i++) {
+            Account a2 = list.get(i);
+            Log.i("TESTAll", a2.getId()+"name " + a2.getBankName());
+        }
 
         txtPseudo = (EditText) findViewById(R.id.txtPseudo);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
