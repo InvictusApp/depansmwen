@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                         txtPassword.setText("");
                         //Lancer la fenetre principal
                         Intent intent = new Intent(MainActivity.this,HomeAppActivity.class);
+                        intent.putExtra("UserConnected",user);
                         startActivity(intent);
 
                     }else{
