@@ -1,4 +1,4 @@
-package com.klasscode.depansmwen;
+package com.klasscode.depansmwen.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.klasscode.depansmwen.Model.bean.User;
+
+import com.klasscode.depansmwen.R;
 
 public class HomeAppActivity extends AppCompatActivity {
 

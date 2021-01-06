@@ -1,4 +1,4 @@
-package com.klasscode.depansmwen;
+package com.klasscode.depansmwen.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.klasscode.depansmwen.Model.UserDao;
 import com.klasscode.depansmwen.Model.bean.User;
+import com.klasscode.depansmwen.R;
 
 
 public class MainActivity extends AppCompatActivity {
