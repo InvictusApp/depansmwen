@@ -1,4 +1,4 @@
-package com.klasscode.depansmwen;
+package com.klasscode.depansmwen.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +17,7 @@ import com.klasscode.depansmwen.Model.UserDao;
 import com.klasscode.depansmwen.Model.bean.Account;
 import com.klasscode.depansmwen.Model.bean.Transaction;
 import com.klasscode.depansmwen.Model.bean.User;
+import com.klasscode.depansmwen.R;
 
 import java.util.ArrayList;
 import java.util.Date;
