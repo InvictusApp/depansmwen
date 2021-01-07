@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.klasscode.depansmwen.Model.AccountDao;
+import com.klasscode.depansmwen.Model.TransactionDao;
 import com.klasscode.depansmwen.Model.UserDao;
 import com.klasscode.depansmwen.Model.bean.Account;
 import com.klasscode.depansmwen.Model.bean.Transaction;
@@ -51,6 +52,29 @@ public class MainActivity extends AppCompatActivity {
 
 
         dao = new UserDao(this);
+
+        //TEST
+      /*  AccountDao adao = new AccountDao(this);
+        Account a = adao.get(1);
+        Log.i("test","Name " + a.getBankName());*/
+
+        //TEST TRANSACTION
+        TransactionDao tdao = new TransactionDao(this);
+        /*TransactionDao tdao = new TransactionDao(this);
+        Transaction t = new Transaction(1,"depot",0,700);
+        t.setCreateAt(new Date());
+        Log.i("test","" +tdao.insert(t));*/
+
+        //get
+        Transaction t1 = tdao.get(1);
+        //Log.i("test","" +t1.getAmount());
+
+        //getlist
+        List<Transaction> listt = tdao.getAll();
+        for(int i =0; i< listt.size(); i++){
+            Transaction t = listt.get(i);
+            //Log.i("test","" +t.getAmount()+""+t.getType()+""+);
+        }
 
         txtPseudo = (EditText) findViewById(R.id.txtPseudo);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
