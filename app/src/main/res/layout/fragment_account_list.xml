@@ -108,7 +108,8 @@
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/accountListLayout1"
                     android:layout_toRightOf="@id/accountListLayout1"
-                    android:padding="6.18dp">
+                    android:padding="6.18dp"
+                    android:layout_gravity="center">
 
                     <ImageView
                         android:id="@+id/accountListImage1"
@@ -119,20 +120,36 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/accountListImage2"
-                        android:layout_width="26.18dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6.18dp"
-                        android:src="@drawable/ic_edit"
-                        app:tint="@color/white"
-                        app:layout_constraintTop_toBottomOf="@id/accountListImage1"
-                        app:layout_constraintEnd_toEndOf="@id/accountListImage1" />
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:fab_labelsPosition="left"
+        app:fab_labelStyle="@style/LabelStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_ColorNormal="@color/white"
+            app:fab_title="Label on the Left"
+            app:fab_icon="@drawable/ic_eye"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/white"
+            app:fab_title="Another one on the left"
+            app:fab_size="mini"
+            app:fab_icon="@drawable/ic_logout"/>
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
