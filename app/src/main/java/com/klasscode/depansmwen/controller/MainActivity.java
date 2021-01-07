@@ -11,11 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.klasscode.depansmwen.Model.AccountDao;
-import com.klasscode.depansmwen.Model.TransactionDao;
-import com.klasscode.depansmwen.Model.UserDao;
-import com.klasscode.depansmwen.Model.bean.Account;
-import com.klasscode.depansmwen.Model.bean.Transaction;
+
+import com.klasscode.depansmwen.Model.user.UserDao;
+
 import com.klasscode.depansmwen.Model.bean.User;
 import com.klasscode.depansmwen.R;
 
@@ -66,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         //TEST TRANSACTION
         //TransactionDao tdao = new TransactionDao(this);
-        TransactionDao tdao = new TransactionDao(this);
+        //TransactionDao tdao = new TransactionDao(this);
 
         /*Transaction tr = new Transaction(1,"depot",0,700);
         tr.setCreateAt(new Date());
@@ -128,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
                         txtPassword.setText("");
                         //Lancer la fenetre principal
                         Intent intent = new Intent(MainActivity.this,HomeAppActivity.class);
+                        intent.putExtra("UserConnected",user);
                         startActivity(intent);
 
                     }else{
