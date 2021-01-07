@@ -12,31 +12,35 @@ import android.widget.TextView;
 
 import com.klasscode.depansmwen.Model.account.AccountDao;
 import com.klasscode.depansmwen.Model.bean.Account;
+import com.klasscode.depansmwen.Model.bean.Transaction;
+import com.klasscode.depansmwen.Model.transaction.TransactionDao;
 import com.klasscode.depansmwen.R;
 
 import java.util.ArrayList;
 
-public class AccountAdapter extends BaseAdapter {
+public class TransactionAdapter extends BaseAdapter {
     private Activity context;
-    ArrayList<Account> accounts;
-    AccountDao db;
+    ArrayList<Transaction> mTransactionArrayList;
+    TransactionDao db;
     BaseAdapter ba;
     private PopupWindow pwindowAccount;
-    public AccountAdapter(Activity context, ArrayList<Account> accounts, AccountDao db) {
+
+    public TransactionAdapter(Activity context, ArrayList<Transaction> accounts, TransactionDao db) {
         this.context = context;
-        this.accounts = accounts;
+        this.mTransactionArrayList = accounts;
         this.db = db;
     }
+
     public static class ViewHolder
     {
-        TextView textViewBankName;
-        TextView textViewNumberAccount;
+        TextView textViewTransactionType;
+        TextView textViewAmount;
         Button btnEdit;
         Button btnDelete;
     }
     @Override
     public int getCount() {
-        return accounts.size();
+        return mTransactionArrayList.size();
     }
 
     @Override
@@ -56,20 +60,17 @@ public class AccountAdapter extends BaseAdapter {
         ViewHolder vh;
         if(view == null){
             vh = new ViewHolder();
-            row = inflater.inflate(R.layout.row_account_item,null,true);
-            vh.textViewBankName = (TextView)row.findViewById(R.id.txBankName);
-            vh.textViewNumberAccount = (TextView)row.findViewById(R.id.txNumberAccount);
+            row = inflater.inflate(R.layout.row_transaction_item,null,true);
+            vh.textViewTransactionType = (TextView)row.findViewById(R.id.txTransactionType);
+            vh.textViewAmount = (TextView)row.findViewById(R.id.txViewAmount);
             vh.btnEdit = (Button)row.findViewById(R.id.btnEdit);
             vh.btnDelete = (Button)row.findViewById(R.id.btnDelete);
-
-            // store the holder with the view.
             row.setTag(vh);
         }else{
-            vh = (ViewHolder)view.getTag();
+            vh = (TransactionAdapter.ViewHolder)view.getTag();
         }
-
-        vh.textViewNumberAccount.setText(accounts.get(i).getBankName());
-        vh.textViewNumberAccount.setText((int) accounts.get(i).getNumberAccount());
+        vh.textViewAmount.setText((int) mTransactionArrayList.get(i).getAmount());
+        vh.textViewTransactionType.setText(mTransactionArrayList.get(i).getType());
         final int positionPopup = i;
         vh.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,9 +82,9 @@ public class AccountAdapter extends BaseAdapter {
         vh.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                db.delete(accounts.get(i));
-                accounts = (ArrayList)db.getAll();
-                Log.i("test delete element ", ""+accounts.size());
+                db.delete(mTransactionArrayList.get(i));
+                mTransactionArrayList = (ArrayList)db.getAll();
+                Log.i("test delete element ", ""+mTransactionArrayList.size());
                 notifyDataSetChanged();
             }
         });
