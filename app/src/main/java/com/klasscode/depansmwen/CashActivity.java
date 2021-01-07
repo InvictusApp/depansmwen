@@ -2,6 +2,7 @@ package com.klasscode.depansmwen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ public class CashActivity extends AppCompatActivity {
     private Button btnAddCash;
     private PopupWindow pwindo;
     private ListView listCash;
+    private int FIRST_CALL_ID=1234;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,9 @@ public class CashActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                showpopup();
+                //showpopup();
+                Intent intent = new Intent(CashActivity.this,AddCashActivity.class);
+                startActivityForResult(intent,FIRST_CALL_ID);
             }
         });
 
@@ -58,6 +62,7 @@ public class CashActivity extends AppCompatActivity {
                 }else{
 
                     //Insertion in CashDao
+
                 }
             }
         });
