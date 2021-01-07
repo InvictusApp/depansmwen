@@ -1,6 +1,5 @@
 package com.klasscode.depansmwen;
 
-import com.klasscode.depansmwen.Model.AccountDao;
 import com.klasscode.depansmwen.Model.bean.Account;
 
 import org.junit.Test;

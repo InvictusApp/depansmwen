@@ -1,4 +1,4 @@
-package com.klasscode.depansmwen.Model;
+package com.klasscode.depansmwen.Model.account;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -10,6 +10,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.klasscode.depansmwen.Model.DatabaseManager;
 import com.klasscode.depansmwen.Model.bean.Account;
 
 import java.text.ParseException;

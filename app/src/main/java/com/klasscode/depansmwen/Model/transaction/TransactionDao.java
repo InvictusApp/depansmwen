@@ -1,4 +1,4 @@
-package com.klasscode.depansmwen.Model;
+package com.klasscode.depansmwen.Model.transaction;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.klasscode.depansmwen.Model.DatabaseManager;
 import com.klasscode.depansmwen.Model.bean.Transaction;
 
 import java.text.ParseException;

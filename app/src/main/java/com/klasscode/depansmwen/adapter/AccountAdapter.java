@@ -1,4 +1,4 @@
-package com.klasscode.depansmwen;
+package com.klasscode.depansmwen.adapter;
 
 import android.app.Activity;
 import android.util.Log;
@@ -10,8 +10,9 @@ import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.klasscode.depansmwen.Model.AccountDao;
+import com.klasscode.depansmwen.Model.account.AccountDao;
 import com.klasscode.depansmwen.Model.bean.Account;
+import com.klasscode.depansmwen.R;
 
 import java.util.ArrayList;
 
