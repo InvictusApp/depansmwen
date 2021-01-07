@@ -12,9 +12,9 @@
         <activity android:name=".controller.cash.AddCashActivity"></activity>
         <activity android:name=".controller.cash.CashActivity" />
         <activity android:name=".controller.account.AccountActivity" />
-        <activity android:name=".HomeAppActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".controller.HomeAppActivity" />
+        <activity android:name=".controller.SignUpActivity" />
+        <activity android:name=".controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

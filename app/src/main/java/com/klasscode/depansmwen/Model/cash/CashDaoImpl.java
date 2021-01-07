@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -29,18 +30,20 @@ public class CashDaoImpl  extends SQLiteOpenHelper implements DatabaseManager<Ca
     public static final String UPDATE_AT = "updateAt";
 
     public static final String CREATE_CASH_TABLE = "CREATE TABLE " +TABLE_NAME+ " ( "
-            +PRIMARY_KEY+ " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
+            +PRIMARY_KEY+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
             +FOREIGN_KEY+ " INTEGER,"
             +DESCRIPTION+ " TEXT, "
             +AMOUNT+ " REAL, "
-            +CREATE_AT+ " DATE NOT NULL, "
-            +UPDATE_AT+ " DATE NOT NULL,"
-            +" FOREIGN KEY ( " +FOREIGN_KEY+ " ) REFERENCES " +NAME_USER_TABLE+ " ( " +PRIMARY_KEY_USER+ " ));";
+            +CREATE_AT+ " DATE DEFAULT NULL, "
+            +UPDATE_AT+ " DATE DEFAULT NULL" +
+            ")";
+
 
     public static final String DROP_CASH_TABLE = "DROP TABLE IF EXISTS " +TABLE_NAME+ "; ";
 
     public CashDaoImpl(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        Log.i("DATABASE","Create table cash");
     }
 
     @Override
@@ -67,7 +70,7 @@ public class CashDaoImpl  extends SQLiteOpenHelper implements DatabaseManager<Ca
         value.put( UPDATE_AT, cash.getUpdateAt().toString() );
 
         long lineNumberInsert = mDb.insert( TABLE_NAME, null, value );
-
+        Log.i("DEBUG","result "+ lineNumberInsert);
         if( lineNumberInsert < 0 )
             insert = false;
         else
