@@ -80,7 +80,7 @@
                     android:layout_height="100dp"
                     android:layout_margin="8dp"
                     android:padding="8dp"
-                    android:src="@drawable/icon_account"
+                    android:src="@drawable/verified_account"
                     android:contentDescription="@string/menu_icon" />
 
                 <TextView
@@ -113,7 +113,7 @@
                     android:layout_height="100dp"
                     android:layout_margin="8dp"
                     android:padding="8dp"
-                    android:src="@drawable/icon_transaction"
+                    android:src="@drawable/accounting_cash"
                     android:contentDescription="@string/menu_icon" />
 
                 <TextView
