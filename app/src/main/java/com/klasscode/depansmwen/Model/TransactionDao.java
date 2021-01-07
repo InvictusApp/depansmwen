@@ -10,7 +10,10 @@ import androidx.annotation.Nullable;
 
 import com.klasscode.depansmwen.Model.bean.Transaction;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TransactionDao extends SQLiteOpenHelper implements DatabaseManager<Transaction> {
@@ -95,6 +98,15 @@ public class TransactionDao extends SQLiteOpenHelper implements DatabaseManager<
             tr.setNumberTransferAccount(cursor.getLong(3));
             tr.setAmount(cursor.getLong(4));
 
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            Date d = null;
+            try {
+                d = dateFormat.parse(cursor.getString(5));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            tr.setCreateAt(d);
+
         }
         return tr;
     }
@@ -114,6 +126,16 @@ public class TransactionDao extends SQLiteOpenHelper implements DatabaseManager<
                 tr.setType(cursor.getString(2));
                 tr.setNumberTransferAccount(cursor.getLong(3));
                 tr.setAmount(cursor.getLong(4));
+
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                Date d = null;
+                try {
+                    d = dateFormat.parse(cursor.getString(5));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                tr.setCreateAt(d);
+
                 transactionList.add(tr);
             }while (cursor.moveToNext());
         }

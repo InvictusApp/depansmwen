@@ -54,26 +54,52 @@ public class MainActivity extends AppCompatActivity {
         dao = new UserDao(this);
 
         //TEST
-      /*  AccountDao adao = new AccountDao(this);
+       /*AccountDao adao = new AccountDao(this);
+       Account a1 = new Account("unibank",123456,500,true);
+       a1.setIdUser(1);
+       a1.setCreateAt(new Date());
+
+        Log.i("test insert ","" + adao.insert(a1));
         Account a = adao.get(1);
-        Log.i("test","Name " + a.getBankName());*/
+        Log.i("test get ","Name " + a.getBankName()+"date "+a.getCreateAt());*/
 
         //TEST TRANSACTION
+        //TransactionDao tdao = new TransactionDao(this);
         TransactionDao tdao = new TransactionDao(this);
-        /*TransactionDao tdao = new TransactionDao(this);
-        Transaction t = new Transaction(1,"depot",0,700);
-        t.setCreateAt(new Date());
-        Log.i("test","" +tdao.insert(t));*/
 
+        /*Transaction tr = new Transaction(1,"depot",0,700);
+        tr.setCreateAt(new Date());
+        Log.i("test insert ","" +tdao.insert(tr));
+
+        Transaction tr1 = new Transaction(1,"transfer",7867868,1700);
+        tr1.setCreateAt(new Date());
+        Log.i("test insert","" +tdao.insert(tr1));
         //get
         Transaction t1 = tdao.get(1);
-        //Log.i("test","" +t1.getAmount());
+        Log.i("test get","" +t1.getAmount());
 
+        Transaction tr2 = new Transaction(1,"transfer",7867868,2700);
+        tr2.setUpdateAt(new Date());
+        tr2.setId(1);
+        Log.i("test update", ""+tdao.update(tr2));
+
+        Transaction t12 = tdao.get(1);
+        Log.i("test get","" +t12.getAmount());*/
         //getlist
         List<Transaction> listt = tdao.getAll();
         for(int i =0; i< listt.size(); i++){
             Transaction t = listt.get(i);
-            //Log.i("test","" +t.getAmount()+""+t.getType()+""+);
+            Log.i("test list",""+t.getId()+"" +t.getAmount()+""+t.getType()+""+t.getCreateAt());
+        }
+        //delete
+        Transaction t = new Transaction();
+        t.setId(1);
+        Log.i("test delete",""+tdao.delete(t));
+        //getlist
+        List<Transaction> list = tdao.getAll();
+        for(int i =0; i< list.size(); i++){
+            Transaction tt = list.get(i);
+            Log.i("test list",""+tt.getId()+"" +tt.getAmount()+""+tt.getType()+""+tt.getCreateAt());
         }
 
         txtPseudo = (EditText) findViewById(R.id.txtPseudo);
