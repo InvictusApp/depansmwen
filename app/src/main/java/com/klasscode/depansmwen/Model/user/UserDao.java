@@ -1,4 +1,4 @@
-package com.klasscode.depansmwen.Model;
+package com.klasscode.depansmwen.Model.user;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,6 +9,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.klasscode.depansmwen.Model.DatabaseManager;
 import com.klasscode.depansmwen.Model.bean.User;
 
 import java.text.DateFormat;
@@ -19,7 +20,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
-public class UserDao extends SQLiteOpenHelper implements DatabaseManager<User>{
+public class UserDao extends SQLiteOpenHelper implements DatabaseManager<User> {
 
 
     public UserDao(@Nullable Context context) {

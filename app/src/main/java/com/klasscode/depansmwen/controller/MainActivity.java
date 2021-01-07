@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.klasscode.depansmwen.Model.UserDao;
+import com.klasscode.depansmwen.Model.user.UserDao;
 import com.klasscode.depansmwen.Model.bean.User;
 import com.klasscode.depansmwen.R;
 

@@ -1,14 +1,16 @@
-package com.klasscode.depansmwen;
+package com.klasscode.depansmwen.controller.account;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AddCashActivity extends AppCompatActivity {
+import com.klasscode.depansmwen.R;
+
+public class AccountActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_cash);
+        setContentView(R.layout.activity_account);
     }
 }

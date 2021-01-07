@@ -1,4 +1,4 @@
-package com.klasscode.depansmwen;
+package com.klasscode.depansmwen.controller.cash;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.Toast;
+
+import com.klasscode.depansmwen.R;
 
 public class CashActivity extends AppCompatActivity {
 
@@ -34,7 +36,7 @@ public class CashActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //showpopup();
-                Intent intent = new Intent(CashActivity.this,AddCashActivity.class);
+                Intent intent = new Intent(CashActivity.this, AddCashActivity.class);
                 startActivityForResult(intent,FIRST_CALL_ID);
             }
         });

@@ -10,6 +10,8 @@ import android.widget.Button;
 import com.klasscode.depansmwen.Model.bean.User;
 
 import com.klasscode.depansmwen.R;
+import com.klasscode.depansmwen.controller.account.AccountActivity;
+import com.klasscode.depansmwen.controller.cash.CashActivity;
 
 public class HomeAppActivity extends AppCompatActivity {
 
@@ -30,7 +32,7 @@ public class HomeAppActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(HomeAppActivity.this,AccountActivity.class);
+                Intent intent = new Intent(HomeAppActivity.this, AccountActivity.class);
                 intent.putExtra("UserConnected",user);
                 startActivity(intent);
             }
@@ -40,7 +42,7 @@ public class HomeAppActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(HomeAppActivity.this,CashActivity.class);
+                Intent intent = new Intent(HomeAppActivity.this, CashActivity.class);
                 intent.putExtra("UserConnected",user);
                 startActivity(intent);
             }

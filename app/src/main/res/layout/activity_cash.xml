@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CashActivity">
+    tools:context=".controller.cash.CashActivity">
 
     <Button
         android:id="@+id/btnAddCash"
