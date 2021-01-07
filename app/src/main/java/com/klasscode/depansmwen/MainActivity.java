@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         Transaction t12 = tdao.get(1);
         Log.i("test get","" +t12.getAmount());*/
         //getlist
-        List<Transaction> listt = tdao.getAll();
+       /* List<Transaction> listt = tdao.getAll();
         for(int i =0; i< listt.size(); i++){
             Transaction t = listt.get(i);
             Log.i("test list",""+t.getId()+"" +t.getAmount()+""+t.getType()+""+t.getCreateAt());
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         for(int i =0; i< list.size(); i++){
             Transaction tt = list.get(i);
             Log.i("test list",""+tt.getId()+"" +tt.getAmount()+""+tt.getType()+""+tt.getCreateAt());
-        }
+        }*/
 
         txtPseudo = (EditText) findViewById(R.id.txtPseudo);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
