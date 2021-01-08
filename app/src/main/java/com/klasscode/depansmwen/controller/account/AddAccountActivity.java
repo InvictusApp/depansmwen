@@ -58,8 +58,8 @@ public class AddAccountActivity extends Activity{
 
                 if(!bankName.equals("") && !accountNumber.equals("") && !balance.equals("")){
                         mAccount = new Account(bankName,Long.parseLong( accountNumber ),Double.parseDouble(balance),true);
-                        //mAccount.setIdUser(user.getId());
-                    mAccount.setIdUser(1);
+                        mAccount.setIdUser(user.getId());
+                    //mAccount.setIdUser(1);
                     mAccount.setCreateAt(new Date());
                         Log.i("Test",""+adao.insert(mAccount));
                         //Log.i("Test","BankName " + mAccount.getBankName() + " number "+mAccount.getNumberAccount() + " Balance " + mAccount.getBalance() + "UserId "+ mAccount.getIdUser());
