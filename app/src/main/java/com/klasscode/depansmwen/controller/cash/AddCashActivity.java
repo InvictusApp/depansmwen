@@ -31,6 +31,8 @@ public class AddCashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_cash);
 
         dao= new CashDaoImpl(this);
+        dao.getWritableDatabase();
+
         txtDescription = (EditText)findViewById(R.id.txtDescription);
         txtMontant = (EditText) findViewById(R.id.txtAmount);
         btnSave = (Button) findViewById(R.id.btnSave);
@@ -58,9 +60,11 @@ public class AddCashActivity extends AppCompatActivity {
                             cash.setCreateAt(new Date());
                             cash.setUpdateAt(new Date());
                             if(dao.insert(cash)){
-                                Log.i("DEBUG","Insertion ok");
+                                Toast.makeText(AddCashActivity.this, getString(R.string.msg_cashInsert),Toast.LENGTH_LONG).show();
+                                //Inform the list view the change of cash
+
                             }else{
-                                Log.i("DEBUG","Insertion not ok");
+                                Toast.makeText(AddCashActivity.this, getString(R.string.msg_cashFailed),Toast.LENGTH_LONG).show();
                             }
 
                         }else{

@@ -20,7 +20,6 @@ import com.klasscode.depansmwen.R;
 public class CashActivity extends AppCompatActivity {
 
     private Button btnAddCash;
-    private PopupWindow pwindo;
     private ListView listCash;
     private int FIRST_CALL_ID=1234;
 

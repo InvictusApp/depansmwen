@@ -41,6 +41,17 @@ public class UserDao extends SQLiteOpenHelper implements DatabaseManager<User> {
                 ")";
 
         db.execSQL(create_user_table);
+        Log.i("DATABASE",db.getPath()+"/"+db.isOpen());
+        String create_user_table2= "CREATE TABLE cash (" +
+                "id integer primary key autoincrement," +
+                "id_user integer not null," +
+                "description text not null," +
+                "amount double not null," +
+                "create_at datetime DEFAULT NULL," +
+                "update_at datetime DEFAULT NULL " +
+                ")";
+
+        db.execSQL(create_user_table2);
         Log.i("DATABASE","creation de la table user");
     }
 
