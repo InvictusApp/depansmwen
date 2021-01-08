@@ -29,6 +29,11 @@
     <string name="rapport_statistique">Rapport Statistique</string>
     <string name="dashboard">Dashboard</string>
     <string name="cash">Cash</string>
+
+    <string name="msg_montantIcorect">Montant Incorrect</string>
+    <string name="msg_cashInsert">Cash Insere avec Succes</string>
+    <string name="msg_cashFailed">Echec d\'insertion de votre Cash</string>
+
     <string name="add_account_btn">Ajouter un Compte</string>
 
 </resources>

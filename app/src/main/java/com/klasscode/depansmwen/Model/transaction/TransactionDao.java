@@ -36,7 +36,7 @@ public class TransactionDao extends SQLiteOpenHelper implements DatabaseManager<
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String create_table_transaction = "CREATE TABLE "+ TABLE_TRANSACTION +"("
+        /*String create_table_transaction = "CREATE TABLE "+ TABLE_TRANSACTION +"("
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + ID_ACCOUNT + " INTEGER NOT NULL,"
                 + TYPE + " TEXT,"
@@ -45,7 +45,7 @@ public class TransactionDao extends SQLiteOpenHelper implements DatabaseManager<
                 + CREATE_AT + " date,"
                 + UPDATE_AT + " date"
                 +")";
-        db.execSQL(create_table_transaction);
+        db.execSQL(create_table_transaction);*/
     }
 
     @Override

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.klasscode.depansmwen.Model.bean.User;
 import com.klasscode.depansmwen.R;
@@ -19,6 +20,7 @@ public class AccountActivity extends Activity {
     //private static final String USER = "com.klasscode.depansmwen.controller.HomeAppActivity.USER";
     private Button mAddBtn;
     private User user;
+    private ListView mListView;
 
     public static final int IDENTITY_TO_ACCOUNT_ACTIVITY = 3;
     @Override
@@ -28,6 +30,8 @@ public class AccountActivity extends Activity {
 
         user = (User) getIntent().getSerializableExtra( MainActivity.USER );
         mAddBtn = (Button) findViewById( R.id.add_account_btn );
+
+        mListView = (ListView)findViewById(R.id.listAccount);
 
         mAddBtn.setText( "Sir/Miss " +user.getUsername()+ " Ajouter un Compte" );
         mAddBtn.setOnClickListener(new View.OnClickListener() {
