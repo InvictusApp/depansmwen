@@ -23,17 +23,20 @@ public class HomeAppActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_app);
 
-        User user = (User) getIntent().getSerializableExtra("UserConnected");
+        User user = (User) getIntent().getSerializableExtra( MainActivity.USER );
+        //User user = (User) getIntent().getSerializableExtra( "UserConnected" );
 
         btnCash = findViewById(R.id.btnCash);
         btnCompte = findViewById(R.id.btnCompte);
 
+        //btnCompte.setText( btnCompte.getText().toString()+ "cmp" +user.getUsername() );
         btnCompte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(HomeAppActivity.this, AccountActivity.class);
-                intent.putExtra("UserConnected",user);
+                intent.putExtra( MainActivity.USER, user);
+                //intent.putExtra( "UserConnected", user);
                 startActivity(intent);
             }
         });
@@ -43,7 +46,8 @@ public class HomeAppActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(HomeAppActivity.this, CashActivity.class);
-                intent.putExtra("UserConnected",user);
+                intent.putExtra( MainActivity.USER, user);
+                //intent.putExtra( "UserConnected", user);
                 startActivity(intent);
             }
         });

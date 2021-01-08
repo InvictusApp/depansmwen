@@ -9,14 +9,13 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.DepansMwen">
-
-        <activity android:name=".controller.cash.AddCashActivity"></activity>
+        <activity android:name=".controller.account.AddAccountActivity"></activity>
+        <activity android:name=".controller.cash.AddCashActivity" />
         <activity android:name=".controller.cash.CashActivity" />
         <activity android:name=".controller.account.AccountActivity" />
         <activity android:name=".controller.HomeAppActivity" />
         <activity android:name=".controller.SignUpActivity" />
         <activity android:name=".controller.MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
