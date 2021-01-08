@@ -8,8 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.klasscode.depansmwen.Model.DatabaseManager;
 import com.klasscode.depansmwen.Model.bean.Transaction;
+import com.klasscode.depansmwen.Model.database.DaoBase;
+import com.klasscode.depansmwen.Model.database.DatabaseManager;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TransactionDao extends SQLiteOpenHelper implements DatabaseManager<Transaction> {
+public class TransactionDao extends DaoBase implements DatabaseManager<Transaction> {
     //Transaction table name
     private static final String TABLE_TRANSACTION = "Transac";
 
@@ -31,32 +32,15 @@ public class TransactionDao extends SQLiteOpenHelper implements DatabaseManager<
     private static final String UPDATE_AT = "updateAt";
 
     public TransactionDao(@Nullable Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context);
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        String create_table_transaction = "CREATE TABLE "+ TABLE_TRANSACTION +"("
-                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + ID_ACCOUNT + " INTEGER NOT NULL,"
-                + TYPE + " TEXT,"
-                + NUMBER_TRANSFER_ACCOUNT + " LONG,"
-                + AMOUNT + " LONG,"
-                + CREATE_AT + " date,"
-                + UPDATE_AT + " date"
-                +")";
-        db.execSQL(create_table_transaction);
-    }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS Transac ");
-        this.onCreate(db);
-    }
 
     @Override
     public boolean insert(Transaction transaction) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        //SQLiteDatabase db = this.getWritableDatabase();
+
         ContentValues values = new ContentValues();
 
         //values.put(KEY_ID, transaction.getId());
@@ -65,13 +49,13 @@ public class TransactionDao extends SQLiteOpenHelper implements DatabaseManager<
         values.put(NUMBER_TRANSFER_ACCOUNT,transaction.getNumberTransferAccount());
         values.put(AMOUNT,transaction.getAmount());
         values.put(CREATE_AT,transaction.getCreateAt().toString());
-        long f = db.insert(TABLE_TRANSACTION,null, values);
+        long f = mDb.insert(TABLE_TRANSACTION,null, values);
         return (f > 0) ? true : false;
     }
 
     @Override
     public boolean update(Transaction transaction) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        //SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         //values.put(KEY_ID, transaction.getId());
@@ -80,14 +64,14 @@ public class TransactionDao extends SQLiteOpenHelper implements DatabaseManager<
         values.put(NUMBER_TRANSFER_ACCOUNT,transaction.getNumberTransferAccount());
         values.put(AMOUNT,transaction.getAmount());
         values.put(UPDATE_AT,transaction.getUpdateAt().toString());
-        long f = db.update(TABLE_TRANSACTION, values, KEY_ID + " = ?", new String[]{String.valueOf(transaction.getId())});
+        long f = mDb.update(TABLE_TRANSACTION, values, KEY_ID + " = ?", new String[]{String.valueOf(transaction.getId())});
         return (f != 0) ? true : false;
     }
 
     @Override
     public Transaction get(int id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_TRANSACTION,new String[]{KEY_ID,ID_ACCOUNT,TYPE,NUMBER_TRANSFER_ACCOUNT,AMOUNT,CREATE_AT,UPDATE_AT},
+        //SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = mDb.query(TABLE_TRANSACTION,new String[]{KEY_ID,ID_ACCOUNT,TYPE,NUMBER_TRANSFER_ACCOUNT,AMOUNT,CREATE_AT,UPDATE_AT},
                 KEY_ID + " = ?", new String[]{String.valueOf(id)},null,null,null);
 
         Transaction tr = new Transaction();
@@ -115,9 +99,9 @@ public class TransactionDao extends SQLiteOpenHelper implements DatabaseManager<
     @Override
     public List<Transaction> getAll() {
         List<Transaction> transactionList = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
+        //SQLiteDatabase db = this.getReadableDatabase();
         String sqlQuery = "SELECT * FROM " + TABLE_TRANSACTION;
-        Cursor cursor = db.rawQuery(sqlQuery, null);
+        Cursor cursor = mDb.rawQuery(sqlQuery, null);
 
         if(cursor.moveToFirst()){
             do{
@@ -145,9 +129,9 @@ public class TransactionDao extends SQLiteOpenHelper implements DatabaseManager<
 
     @Override
     public boolean delete(Transaction transaction) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        long f = db.delete(TABLE_TRANSACTION,KEY_ID + " = ?", new String[]{String.valueOf(transaction.getId())});
-        db.close();
+        //SQLiteDatabase db = this.getWritableDatabase();
+        long f = mDb.delete(TABLE_TRANSACTION,KEY_ID + " = ?", new String[]{String.valueOf(transaction.getId())});
+        mDb.close();
         return (f > 0) ? true : false;
     }
 }

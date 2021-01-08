@@ -9,51 +9,23 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.klasscode.depansmwen.Model.DatabaseManager;
 import com.klasscode.depansmwen.Model.bean.User;
+import com.klasscode.depansmwen.Model.database.DaoBase;
+import com.klasscode.depansmwen.Model.database.DatabaseManager;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 
-public class UserDao extends SQLiteOpenHelper implements DatabaseManager<User> {
+public class UserDao extends DaoBase implements DatabaseManager<User> {
 
 
-    public UserDao(@Nullable Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    public UserDao(Context pContext) {
+        super(pContext);
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
 
-        String create_user_table= "CREATE TABLE user (" +
-                "id integer primary key autoincrement," +
-                "username text not null," +
-                "pseudo text not null unique," +
-                "email text not null," +
-                "password text not null," +
-                "create_at datetime DEFAULT NULL," +
-                "update_at datetime DEFAULT NULL " +
-                ")";
-
-        db.execSQL(create_user_table);
-        Log.i("DATABASE","creation de la table user");
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS USER");
-        this.onCreate(db);
-    }
 
     @Override
     public boolean insert(User user) {
-
-        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("username",user.getUsername());
         values.put("pseudo",user.getPseudo());
@@ -61,7 +33,7 @@ public class UserDao extends SQLiteOpenHelper implements DatabaseManager<User> {
         values.put("password",user.getPassword());
         values.put("create_at",user.getCreateAt());
 
-        long f = db.insert("user",null,values);
+        long f = mDb.insert("user",null,values);
         Log.i("DATABASE","Insertion reussie "+ f);
         return true;
     }
@@ -75,8 +47,8 @@ public class UserDao extends SQLiteOpenHelper implements DatabaseManager<User> {
     public User get(int id) {
 
         User user = new User();
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query("user",new String[]{"id","username","pseudo","email","password","create_at,update_at"},"id = ?",new String[]{String.valueOf(id)},null,null,null);
+        //SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = mDb.query("user",new String[]{"id","username","pseudo","email","password","create_at,update_at"},"id = ?",new String[]{String.valueOf(id)},null,null,null);
         while(! cursor.isAfterLast()){
             cursor.moveToFirst();
             user.setId(cursor.getInt(0));
@@ -104,8 +76,10 @@ public class UserDao extends SQLiteOpenHelper implements DatabaseManager<User> {
 
     public boolean checkPseudo(String pseudo) {
 
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query("user",new String[]{"pseudo"},"pseudo = ?",new String[]{pseudo},null,null,null );
+        //SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = mDb.query("user",new String[]{"pseudo"},"pseudo = ?",new String[]{pseudo},null,null,null );
+       // Cursor cursor = mDb.rawQuery("select " + INTITULE + " from " + TABLE_NAME + " where salaire > ?", new String[]{"1"});
+
         if(cursor.getCount()>0){
             return true;
         }else{
@@ -115,8 +89,8 @@ public class UserDao extends SQLiteOpenHelper implements DatabaseManager<User> {
 
     public User checkLogin(String pseudo,String password) {
         User user = null;
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT id,username FROM user WHERE pseudo = ? and password = ?",new String[]{pseudo,password});
+        //SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = mDb.rawQuery("SELECT id,username FROM user WHERE pseudo = ? and password = ?",new String[]{pseudo,password});
 
         if(cursor.getCount()>0){
             cursor.moveToFirst();

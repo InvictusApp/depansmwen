@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.klasscode.depansmwen.Model.TestDAO.TestDAO;
 import com.klasscode.depansmwen.Model.account.AccountDao;
 import com.klasscode.depansmwen.Model.bean.Account;
 import com.klasscode.depansmwen.Model.user.UserDao;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String USER = "com.klasscode.depansmwen.controller.USER";
     private UserDao dao;
+    //private TestDAO dao;
 
 
     @Override
@@ -54,16 +56,28 @@ public class MainActivity extends AppCompatActivity {
 
 
         dao = new UserDao(this);
+        //User u = dao.get(1);
+        User u = new User("Albbert","tester","email.com","12345","1/2/343","1/2/343");
+        Log.i("test list",""+u.getUsername());
+
+        Log.i("test inserer",""+dao.insert(u));
+
+        //ArrayList<User> ul = dao.getAll();
+        /*(int i =0; i< ul.size(); i++){
+            User t = ul.get(i);
+            Log.i("test list",""+t.getId());
+        }*/
+        //dao = new TestDAO(this);
 
         //TEST
-       AccountDao adao = new AccountDao(this);
-       Account a1 = new Account("unibank",123456,500,true);
+      // dao = new TestDao(this);
+      /* Account a1 = new Account("unibank",123456,500,true);
        a1.setIdUser(1);
-       a1.setCreateAt(new Date());
+       a1.setCreateAt(new Date());*/
 
-        Log.i("test insert ","" + adao.insert(a1));
-        Account a = adao.get(1);
-        Log.i("test get ","Name " + a.getBankName()+"date "+a.getCreateAt());
+       // Log.i("test insert ","" + dao.insertA(a1));
+       // Account a = dao.get(1);
+        //Log.i("test get ","Name " + a.getBankName()+"date "+a.getCreateAt());
 
         //TEST TRANSACTION
         //TransactionDao tdao = new TransactionDao(this);

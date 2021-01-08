@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.klasscode.depansmwen.Model.TestDAO.TestDAO;
 import com.klasscode.depansmwen.Model.user.UserDao;
 import com.klasscode.depansmwen.Model.bean.User;
 import com.klasscode.depansmwen.R;
@@ -30,6 +31,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Button btnInscription;
     private User user;
     private UserDao dao;
+    //private TestDAO dao;
 
     @Override
     protected void onDestroy() {
@@ -49,6 +51,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sing_up);
 
         dao = new UserDao(this);
+        //dao = new TestDAO(this);
         txtUsername = (EditText) findViewById(R.id.txtUsername);
         txtPseudo = (EditText) findViewById(R.id.txtPseudo);
         txtEmail = (EditText) findViewById(R.id.txtEmail);

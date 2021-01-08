@@ -8,8 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.klasscode.depansmwen.Model.DatabaseManager;
 import com.klasscode.depansmwen.Model.bean.Cash;
+import com.klasscode.depansmwen.Model.database.DaoBase;
+import com.klasscode.depansmwen.Model.database.DatabaseManager;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class CashDaoImpl  extends SQLiteOpenHelper implements DatabaseManager<Cash> {
+public class CashDaoImpl  extends DaoBase implements DatabaseManager<Cash> {
     public static final String TABLE_NAME = "cash";
     public static final String NAME_USER_TABLE = "user";
     public static final String PRIMARY_KEY_USER = "id";
@@ -40,24 +41,14 @@ public class CashDaoImpl  extends SQLiteOpenHelper implements DatabaseManager<Ca
     public static final String DROP_CASH_TABLE = "DROP TABLE IF EXISTS " +TABLE_NAME+ "; ";
 
     public CashDaoImpl(@Nullable Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context);
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL( CREATE_CASH_TABLE );
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL( DROP_CASH_TABLE );
-        this.onCreate( db );
-    }
 
 
     @Override
     public boolean insert(Cash cash) {
-        SQLiteDatabase mDb = this.getWritableDatabase();
+        //SQLiteDatabase mDb = this.getWritableDatabase();
         ContentValues value = new ContentValues();
         boolean insert = false;
         value.put( FOREIGN_KEY, cash.getIdUser() );
@@ -79,7 +70,7 @@ public class CashDaoImpl  extends SQLiteOpenHelper implements DatabaseManager<Ca
     @Override
     public boolean update(Cash cash) {
 
-        SQLiteDatabase mDb = this.getWritableDatabase();
+        //SQLiteDatabase mDb = this.getWritableDatabase();
         ContentValues value = new ContentValues();
         boolean update = false;
         value.put( FOREIGN_KEY, cash.getIdUser() );
@@ -102,7 +93,7 @@ public class CashDaoImpl  extends SQLiteOpenHelper implements DatabaseManager<Ca
     @Override
     public Cash get(int id) {
         Cash cash = null;
-        SQLiteDatabase mDb = this.getReadableDatabase();
+        //SQLiteDatabase mDb = this.getReadableDatabase();
         Cursor cursor = mDb.rawQuery( "SELECT * FROM " +TABLE_NAME+ " WHERE " +PRIMARY_KEY+  " = ?",
                 new String[] { String.valueOf( id ) } );
         if( cursor.moveToNext() ){
@@ -117,7 +108,7 @@ public class CashDaoImpl  extends SQLiteOpenHelper implements DatabaseManager<Ca
     @Override
     public List<Cash> getAll() {
         List<Cash> cashes = new ArrayList<Cash>();
-        SQLiteDatabase mDb = this.getReadableDatabase();
+        //SQLiteDatabase mDb = this.getReadableDatabase();
         Cursor cursor = mDb.rawQuery( "SELECT * FROM " +TABLE_NAME+ ";", new String[]{} );
         while ( cursor.moveToNext() ){
             cashes.add( map( cursor ) );
@@ -129,7 +120,7 @@ public class CashDaoImpl  extends SQLiteOpenHelper implements DatabaseManager<Ca
     @Override
     public boolean delete(Cash cash) {
 
-        SQLiteDatabase mDb = this.getWritableDatabase();
+        //SQLiteDatabase mDb = this.getWritableDatabase();
         ContentValues value = new ContentValues();
         boolean delete = false;
         int lineNumberDelete = mDb.delete( TABLE_NAME, PRIMARY_KEY + " = ?",
