@@ -6,14 +6,14 @@ public class Cash {
     private int id;
     private int idUser;
     private String description;
-    private long amount;
+    private double amount;
     private Date createAt;
     private Date updateAt;
 
     public Cash() {
     }
 
-    public Cash(int idUser, String description, long amount, Date createAt, Date updateAt) {
+    public Cash(int idUser, String description, double amount, Date createAt, Date updateAt) {
         this.idUser = idUser;
         this.description = description;
         this.amount = amount;
@@ -21,7 +21,7 @@ public class Cash {
         this.updateAt = updateAt;
     }
 
-    public Cash(int id, int idUser, String description, long amount, Date createAt, Date updateAt) {
+    public Cash(int id, int idUser, String description, double amount, Date createAt, Date updateAt) {
         this.id = id;
         this.idUser = idUser;
         this.description = description;
@@ -42,7 +42,7 @@ public class Cash {
         return description;
     }
 
-    public long getAmount() {
+    public double getAmount() {
         return amount;
     }
 
@@ -66,7 +66,7 @@ public class Cash {
         this.description = description;
     }
 
-    public void setAmount(long amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 

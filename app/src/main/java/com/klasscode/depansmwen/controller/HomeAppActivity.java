@@ -1,22 +1,23 @@
 package com.klasscode.depansmwen.controller;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.klasscode.depansmwen.Model.bean.User;
-
 import com.klasscode.depansmwen.R;
 import com.klasscode.depansmwen.controller.account.AccountActivity;
 import com.klasscode.depansmwen.controller.cash.CashActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class HomeAppActivity extends AppCompatActivity {
 
-    private Button btnCash;
-    private Button btnCompte;
+    private LinearLayout btnCash;
+    private LinearLayout btnCompte;
+    private TextView user_connect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +26,10 @@ public class HomeAppActivity extends AppCompatActivity {
 
         User user = (User) getIntent().getSerializableExtra("UserConnected");
 
-        btnCash = findViewById(R.id.btnCash);
-        btnCompte = findViewById(R.id.btnCompte);
+        btnCash = (LinearLayout) findViewById(R.id.btnCash);
+        btnCompte = (LinearLayout) findViewById(R.id.btnCompte);
+        user_connect = (TextView) findViewById(R.id.user_connect);
+        user_connect.setText(user.getPseudo() + " !");
 
         btnCompte.setOnClickListener(new View.OnClickListener() {
             @Override

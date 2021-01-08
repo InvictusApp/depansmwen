@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/layout_container1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/primary_color_rectangle_background"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:layout_margin="15dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/accountListLayout1"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:padding="6.18dp">
+
+            <TextView
+                android:id="@+id/textDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Unibank"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/lblMontant"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/lblMontant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10.618dp"
+                android:text="458588855788555"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/textDescription" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/accountListLayout1"
+            android:layout_toRightOf="@id/accountListLayout1"
+            android:padding="6.18dp"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/btnUpdate"
+                android:layout_width="26.18dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_eye"
+                app:tint="@color/white"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:contentDescription="TODO"
+                />
+
+            <ImageView
+                android:id="@+id/btnDelete"
+                android:layout_width="26.18dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintTop_toBottomOf="@id/btnUpdate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tint="@color/red"
+                android:layout_marginTop="16.18px"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

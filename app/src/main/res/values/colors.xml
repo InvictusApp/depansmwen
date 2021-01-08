@@ -30,6 +30,7 @@
     <color name="tertiary">#148DD9</color>
     <color name="gray">#939AA6</color>
     <color name="light_gray">#F3F2F3</color>
+    <color name="red">#FF0000</color>
 
 
 </resources>

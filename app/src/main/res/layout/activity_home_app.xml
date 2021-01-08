@@ -58,13 +58,15 @@
                 android:layout_marginStart="15dp" />
 
             <TextView
+                android:id="@+id/user_connect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/pseudo_hint"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:layout_marginTop="15dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:layout_marginLeft="4.618dp"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -96,8 +98,8 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:layout_margin="8dp"
                     android:contentDescription="@string/menu_icon"
                     android:padding="8dp"
@@ -130,8 +132,8 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:layout_margin="8dp"
                     android:contentDescription="@string/menu_icon"
                     android:padding="8dp"
