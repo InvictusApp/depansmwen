@@ -62,6 +62,8 @@ public class AddCashActivity extends AppCompatActivity {
                             if(dao.insert(cash)){
                                 Toast.makeText(AddCashActivity.this, getString(R.string.msg_cashInsert),Toast.LENGTH_LONG).show();
                                 //Inform the list view the change of cash
+                                setResult(200);
+                                AddCashActivity.this.finish();
 
                             }else{
                                 Toast.makeText(AddCashActivity.this, getString(R.string.msg_cashFailed),Toast.LENGTH_LONG).show();
