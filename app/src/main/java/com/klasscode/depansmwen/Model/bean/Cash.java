@@ -7,13 +7,13 @@ public class Cash {
     private int idUser;
     private String description;
     private double amount;
-    private Date createAt;
-    private Date updateAt;
+    private String createAt;
+    private String updateAt;
 
     public Cash() {
     }
 
-    public Cash(int idUser, String description, double amount, Date createAt, Date updateAt) {
+    public Cash(int idUser, String description, double amount, String createAt, String updateAt) {
         this.idUser = idUser;
         this.description = description;
         this.amount = amount;
@@ -21,7 +21,7 @@ public class Cash {
         this.updateAt = updateAt;
     }
 
-    public Cash(int id, int idUser, String description, double amount, Date createAt, Date updateAt) {
+    public Cash(int id, int idUser, String description, double amount, String createAt, String updateAt) {
         this.id = id;
         this.idUser = idUser;
         this.description = description;
@@ -46,11 +46,11 @@ public class Cash {
         return amount;
     }
 
-    public Date getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public Date getUpdateAt() {
+    public String getUpdateAt() {
         return updateAt;
     }
 
@@ -70,11 +70,11 @@ public class Cash {
         this.amount = amount;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
+    public void setUpdateAt(String updateAt) {
         this.updateAt = updateAt;
     }
 

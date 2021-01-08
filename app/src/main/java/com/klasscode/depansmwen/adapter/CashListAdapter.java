@@ -20,6 +20,7 @@ import com.klasscode.depansmwen.controller.cash.AddCashActivity;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -109,14 +110,15 @@ public class CashListAdapter extends BaseAdapter {
                 (ViewGroup) context.findViewById(R.id.popup_layout));
         pwindo = new PopupWindow(layout, 600, 600, true);
         pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
-        final EditText txtMontant = (EditText) context.findViewById(R.id.textMontant);
-        final EditText txtDescription = (EditText) context.findViewById(R.id.textDescription);
-        final TextView lblMessage = (TextView) context.findViewById(R.id.lblMessage);
+        final EditText txtMontant = (EditText) layout.findViewById(R.id.textMontant);
+        final EditText txtDescription = (EditText) layout.findViewById(R.id.textDescription);
+        final TextView lblMessage = (TextView) layout.findViewById(R.id.lblMessage);
 
         txtMontant.setText(""+cashs.get(positionPopup).getAmount());
         txtDescription.setText(cashs.get(positionPopup).getDescription());
         int id = cashs.get(positionPopup).getId();
         int idUser = cashs.get(positionPopup).getIdUser();
+        String creat_at = cashs.get(positionPopup).getCreateAt();
 
         Button update = (Button) layout.findViewById(R.id.btnModif);
         update.setOnClickListener(new View.OnClickListener() {
@@ -132,9 +134,13 @@ public class CashListAdapter extends BaseAdapter {
                         Number num = df.parse(montant);
                         Double mon = num.doubleValue();
                         if (mon != 0.0d) {
-                            Cash cash = new Cash(id,idUser,description,mon,null,new Date());
+                            Log.i("DATABASE","Montant is ok");
+                            SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                            String date =f.format(new Date());
+                            Cash cash = new Cash(id,idUser,description,mon,creat_at,date);
+                            Log.i("DATABASE","Cash : "+cash);
                             if(dao.update(cash)){
-
+                                Log.i("DATABASE","In update");
                                 cashs = (ArrayList) dao.getAll();
                                 lblMessage.setText(R.string.msg_cashInsert);
                                 notifyDataSetChanged();
