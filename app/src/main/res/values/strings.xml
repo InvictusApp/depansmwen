@@ -8,7 +8,7 @@
     <string name="password">password</string>
     <string name="don_t_have_account">Don\'t have account</string>
     <string name="create_a_new_account">Create a new account</string>
-    <string name="nouveau_compte_utilisateur">Nouveau Compte Utilisateur</string>
+    <string name="user_new_account">Nouveau Compte Utilisateur</string>
     <string name="s_inscrire">S\'inscrire</string>
     <string name="username_hint">Pierre Etienne</string>
     <string name="pseudo_hint">Pierro7</string>
@@ -30,9 +30,14 @@
     <string name="welcome">Bonjour, </string>
     <string name="user_logon_profil_picture">user logon profil picture</string>
     <string name="menu_icon">menu icon</string>
-    <string name="cash">cash</string>
     <string name="account_number">Nombre de Compte</string>
     <string name="bank_account_cashout">Montant Bancaire Dépensé</string>
     <string name="cash_cashout">Montant Cash Dépensé</string>
     <string name="searchAccountPlaceholder">Rechercher un Compte</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="cash">Cash</string>
+    <string name="add_cash">Add Cash</string>
+    <string name="close_button_add_cash">Bouton Fermeture add Cash</string>
+    <string name="cash_add_description">Description</string>
+    <string name="cash_add_amount">Montant</string>
 </resources>

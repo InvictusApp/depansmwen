@@ -1,4 +1,4 @@
-package com.klasscode.depansmwen;
+package com.klasscode.depansmwen.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,18 +10,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.klasscode.depansmwen.Model.AccountDao;
-import com.klasscode.depansmwen.Model.UserDao;
 import com.klasscode.depansmwen.Model.bean.Account;
 import com.klasscode.depansmwen.Model.bean.Transaction;
+import com.klasscode.depansmwen.Model.user.UserDao;
 import com.klasscode.depansmwen.Model.bean.User;
+import com.klasscode.depansmwen.R;
 
-<<<<<<< HEAD
 import androidx.appcompat.app.AppCompatActivity;
-=======
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
->>>>>>> 6a065057d7a09ed8620c33d0e57fca4ca94a4194
 
 
 public class MainActivity extends AppCompatActivity {
@@ -79,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                         txtPassword.setText("");
                         //Lancer la fenetre principal
                         Intent intent = new Intent(MainActivity.this,HomeAppActivity.class);
+                        intent.putExtra("UserConnected",user);
                         startActivity(intent);
 
                     }else{

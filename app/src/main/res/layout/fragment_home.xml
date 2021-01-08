@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".controller.HomeAppActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutHeader"
@@ -50,6 +50,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:overScrollMode="never"
@@ -62,7 +63,7 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@+id/layoutAccount"
+                android:id="@+id/btnCompte"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
@@ -71,7 +72,7 @@
                 android:orientation="vertical"
                 android:padding="15dp"
                 app:layout_constraintDimensionRatio="H,1:1"
-                app:layout_constraintEnd_toStartOf="@+id/layoutCash"
+                app:layout_constraintEnd_toStartOf="@+id/btnCash"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -79,23 +80,24 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="8dp"
+                    android:contentDescription="@string/menu_icon"
                     android:padding="8dp"
-                    android:src="@drawable/verified_account"
-                    android:contentDescription="@string/menu_icon" />
+                    android:src="@drawable/verified_account" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/compte"
-                    android:textColor="@color/white"
-                    android:textStyle="normal"
                     android:textAllCaps="true"
-                    android:textSize="20sp"/>
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
 
             </LinearLayout>
+
             <LinearLayout
-                android:id="@+id/layoutCash"
+                android:id="@+id/btnCash"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
@@ -104,30 +106,40 @@
                 android:orientation="vertical"
                 android:padding="15dp"
                 app:layout_constraintDimensionRatio="H,1:1"
-                app:layout_constraintStart_toEndOf="@+id/layoutAccount"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnCompte"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="8dp"
+                    android:contentDescription="@string/menu_icon"
                     android:padding="8dp"
-                    android:src="@drawable/accounting_cash"
-                    android:contentDescription="@string/menu_icon" />
+                    android:src="@drawable/accounting_cash" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/cash"
-                    android:textColor="@color/white"
-                    android:textStyle="normal"
                     android:textAllCaps="true"
-                    android:textSize="20sp"/>
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
 
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/logo_bw_depans_mwen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="26.18dp"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

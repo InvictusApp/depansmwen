@@ -29,7 +29,7 @@
                 android:layout_width="0dp"
                 android:layout_height="46.18dp"
                 android:layout_weight="1"
-                android:background="null"
+                android:background="@color/white"
                 android:hint="@string/searchAccountPlaceholder"
                 android:imeOptions="actionSearch"
                 android:inputType="text"
@@ -54,8 +54,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:overScrollMode="never"
-        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layoutHeader">
 
@@ -129,26 +127,26 @@
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:fab_labelsPosition="left"
-        app:fab_labelStyle="@style/LabelStyle"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:fab_ColorNormal="@color/white"
-            app:fab_title="Label on the Left"
-            app:fab_icon="@drawable/ic_eye"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:fab_labelsPosition="left"
+        app:fab_labelStyle="@style/LabelStyle">
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fab_colorNormal="@color/white"
-            app:fab_title="Another one on the left"
+            app:fab_icon="@drawable/ic_playlist_add"
+            app:fab_title="Ajouter un Compte" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/white"
+            app:fab_title="Ki lot action nou ta met la, ann reflechi toujou"
             app:fab_size="mini"
-            app:fab_icon="@drawable/ic_logout"/>
+            app:fab_icon="@drawable/ic_logout"
+            />
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
