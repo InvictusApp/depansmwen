@@ -27,4 +27,6 @@
     <string name="compte">Compte</string>
     <string name="transaction">Transaction</string>
     <string name="rapport_statistique">Rapport Statistique</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="cash">Cash</string>
 </resources>
