@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnLogin;
     private TextView createAccout;
 
+    public static final String USER = "com.klasscode.depansmwen.controller.USER";
     private UserDao dao;
 
 
@@ -126,12 +127,12 @@ public class MainActivity extends AppCompatActivity {
                         txtPassword.setText("");
                         //Lancer la fenetre principal
                         Intent intent = new Intent(MainActivity.this,HomeAppActivity.class);
-                        intent.putExtra("UserConnected",user);
+                        //intent.putExtra("UserConnected", user);
+                        intent.putExtra( USER, user);
                         startActivity(intent);
 
                     }else{
                         Toast.makeText(MainActivity.this, R.string.msg_connection_echec,Toast.LENGTH_SHORT).show();
-                        txtPseudo.setText("");
                         txtPassword.setText("");
                         Log.i("ERROR","User not Connected");
                     }

@@ -15,18 +15,22 @@
         tools:context=".controller.account.AddAccountActivity">
 
 
-        <Button
-            android:id="@+id/add_account_btn"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/bg_button"
-            android:text="@string/add_account_btn"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="41dp"
+            android:background="@color/white"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:layout_marginLeft="41dp"
+            android:text="Welcome to activity add account"
+            android:textAllCaps="true"
+            android:textColor="@color/secondary_text"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/pseudoZone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pseudoZone"
+            />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
