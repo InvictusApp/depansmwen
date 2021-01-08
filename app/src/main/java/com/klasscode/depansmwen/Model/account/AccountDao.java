@@ -121,7 +121,7 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
 
     @Override
     public List<Account> getAll() {
-        List<Account> accountList = new ArrayList<>();
+        List<Account> accountList = new ArrayList<Account>();
         SQLiteDatabase db = this.getReadableDatabase();
         String selectQuery = "SELECT * FROM " + TABLE_ACCOUNT;
         Cursor cursor = db.rawQuery(selectQuery,null);
