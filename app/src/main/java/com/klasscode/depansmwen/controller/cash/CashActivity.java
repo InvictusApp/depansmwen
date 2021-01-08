@@ -73,4 +73,6 @@ public class CashActivity extends AppCompatActivity {
             ((BaseAdapter)listCash.getAdapter()).notifyDataSetChanged();
         }
     }
+
+    
 }
