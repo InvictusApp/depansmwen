@@ -1,8 +1,9 @@
 package com.klasscode.depansmwen.Model.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Cash {
+public class Cash implements Serializable {
     private int id;
     private int idUser;
     private String description;

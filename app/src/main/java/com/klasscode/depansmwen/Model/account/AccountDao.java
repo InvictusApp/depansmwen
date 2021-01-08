@@ -40,7 +40,7 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String create_table_account = "CREATE TABLE " + TABLE_ACCOUNT + "("
+        /*String create_table_account = "CREATE TABLE " + TABLE_ACCOUNT + "("
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + ID_USER + " INTEGER NOT NULL,"
                 + BANK_NAME + " TEXT NOT NULL,"
@@ -51,7 +51,7 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
                 + UPDATE_AT + " date"
                 + ")";
         db.execSQL(create_table_account);
-        Log.i("TABLE ACCOUNT","creation success");
+        Log.i("TABLE ACCOUNT","creation success");*/
     }
 
     @Override

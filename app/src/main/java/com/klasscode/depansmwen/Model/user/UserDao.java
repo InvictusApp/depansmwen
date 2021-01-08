@@ -22,6 +22,19 @@ import java.util.List;
 
 public class UserDao extends SQLiteOpenHelper implements DatabaseManager<User> {
 
+    //Account table name
+    private static final String TABLE_ACCOUNT = "account";
+
+    //Account table Columns names
+    private static final String KEY_ID = "id";
+    private static final String ID_USER = "idUser";
+    private static final String BANK_NAME = "bankName";
+    private static final String NUMBER_ACCOUNT = "numberAccount";
+    private static final String BALANCE = "balance";
+    private static final String IS_ACTIVE = "isActive";
+    private static final String CREATE_AT = "createAt";
+    private static final String UPDATE_AT = "updateAt";
+
 
     public UserDao(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -52,6 +65,19 @@ public class UserDao extends SQLiteOpenHelper implements DatabaseManager<User> {
                 ")";
 
         db.execSQL(create_user_table2);
+
+        String create_table_account = "CREATE TABLE " + TABLE_ACCOUNT + "("
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + ID_USER + " INTEGER NOT NULL,"
+                + BANK_NAME + " TEXT NOT NULL,"
+                + NUMBER_ACCOUNT + " LONG NOT NULL,"
+                + BALANCE + " LONG,"
+                + IS_ACTIVE + " TEXT,"
+                + CREATE_AT + " date,"
+                + UPDATE_AT + " date"
+                + ")";
+        db.execSQL(create_table_account);
+
         Log.i("DATABASE","creation de la table user");
     }
 
