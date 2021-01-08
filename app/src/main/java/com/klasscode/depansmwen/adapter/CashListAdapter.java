@@ -64,6 +64,10 @@ public class CashListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Log.i("DEBUG","In Event delete in row ");
+                dao.delete(cashs.get(positionPopup));
+                cashs = (ArrayList) dao.getAll();
+                Log.d("Country size", "" + cashs.size());
+                notifyDataSetChanged();
             }
         });
 
