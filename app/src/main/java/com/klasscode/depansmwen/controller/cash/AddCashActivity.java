@@ -17,6 +17,7 @@ import com.klasscode.depansmwen.controller.MainActivity;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AddCashActivity extends AppCompatActivity {
@@ -59,8 +60,10 @@ public class AddCashActivity extends AppCompatActivity {
                             cash.setId(1);
                             cash.setDescription(d);
                             cash.setAmount(mon);
-                            cash.setCreateAt(new Date());
-                            cash.setUpdateAt(new Date());
+                            SimpleDateFormat dformat = new SimpleDateFormat("dd-MM-yyyy");
+                            String date = dformat.format(new Date());
+                            cash.setCreateAt(date);
+                            cash.setUpdateAt(date);
                             if(dao.insert(cash)){
                                 Toast.makeText(AddCashActivity.this, getString(R.string.msg_cashInsert),Toast.LENGTH_LONG).show();
                                 //Inform the list view the change of cash

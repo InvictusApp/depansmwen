@@ -72,8 +72,8 @@ public class UserDao extends SQLiteOpenHelper implements DatabaseManager<User> {
                 "id_user integer not null," +
                 "description text not null," +
                 "amount double not null," +
-                "create_at date ," +
-                "update_at date " +
+                "create_at date default null," +
+                "update_at date default null" +
                 ")";
 
         db.execSQL(create_user_table2);
