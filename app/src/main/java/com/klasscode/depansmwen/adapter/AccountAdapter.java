@@ -136,10 +136,15 @@ public class AccountAdapter extends BaseAdapter {
         final EditText txtNumberAccount = (EditText) layout.findViewById(R.id.editNumberAccountM);
         final EditText txBalance = (EditText) layout.findViewById(R.id.edit_BalanceM);
 
+        boolean accountActived=false;
 
         txtBankN.setText(""+accounts.get(positionPopup).getBankName());
         txtNumberAccount.setText(""+accounts.get(positionPopup).getNumberAccount());
         txBalance.setText(""+accounts.get(positionPopup).getBalance());
+        accountActived =accounts.get(positionPopup).isActive();
+
+
+
         int id = accounts.get(positionPopup).getId();
         int idUser = accounts.get(positionPopup).getIdUser();
         //String creat_at = cashs.get(positionPopup).getCreateAt();
@@ -165,6 +170,8 @@ public class AccountAdapter extends BaseAdapter {
                             account.setUpdateAt(date);
                             account.setIdUser(idUser);
                             account.setId(id);
+
+
                            // Log.i("DATABASE","Cash : "+cash);
                             if(db.update(account)){
                                 Log.i("DATABASE","In update");

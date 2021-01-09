@@ -68,7 +68,7 @@ public class AccountActivity extends Activity {
             }
         });
 
-        Toast.makeText(AccountActivity.this, "Size "+mAccountArrayList.size()+"userId"+MainActivity.USERID, Toast.LENGTH_LONG).show();
+       // Toast.makeText(AccountActivity.this, "Size "+mAccountArrayList.size()+"userId"+MainActivity.USERID, Toast.LENGTH_LONG).show();
 
        /*for (Account mAccount : mAccountArrayList) {
 

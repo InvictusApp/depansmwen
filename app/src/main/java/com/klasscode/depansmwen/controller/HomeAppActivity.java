@@ -32,7 +32,7 @@ public class HomeAppActivity extends AppCompatActivity {
         btnCash = (LinearLayout) findViewById(R.id.btnCash);
         btnCompte = (LinearLayout) findViewById(R.id.btnCompte);
         user_connect = (TextView) findViewById(R.id.user_connect);
-//        user_connect.setText(user.getPseudo() + " !");
+        user_connect.setText(MainActivity.USERNAME + " !");
 
         //btnCompte.setText( btnCompte.getText().toString()+ "cmp" +user.getUsername() );
         btnCompte.setOnClickListener(new View.OnClickListener() {
