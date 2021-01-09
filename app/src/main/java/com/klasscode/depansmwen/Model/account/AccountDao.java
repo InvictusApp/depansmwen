@@ -124,7 +124,7 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
     public List<Account> getAll( int id ) {
         List<Account> accountList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        String selectQuery = "SELECT * FROM " + TABLE_ACCOUNT+ " WHERE id = ?";
+        String selectQuery = "SELECT * FROM " + TABLE_ACCOUNT+ " WHERE idUser = ?";
         Cursor cursor = db.rawQuery(selectQuery,
                 new String[]{ String.valueOf( id ) });
 
