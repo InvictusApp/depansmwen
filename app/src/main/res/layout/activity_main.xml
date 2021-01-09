@@ -41,7 +41,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="126.18dp"
                 android:layout_height="126.18dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/logo_depans_mwen" />
 
@@ -72,7 +72,7 @@
                     android:id="@+id/pseudoZone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="30dp"
                     android:background="@drawable/bg_input"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"

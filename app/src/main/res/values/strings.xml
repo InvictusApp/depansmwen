@@ -45,4 +45,7 @@
     <string name="msg_cashFailed">Echec d\'insertion de votre Cash</string>
     <string name="btn_save">Save</string>
     <string name="b_w_logo_depansmwen">Black and white logo DepansMwen</string>
+    <string name="cash_update_description">Description</string>
+    <string name="update_cash">Modification Infos Cash</string>
+    <string name="searchCashPlaceholder">Rechercher un cash</string>
 </resources>

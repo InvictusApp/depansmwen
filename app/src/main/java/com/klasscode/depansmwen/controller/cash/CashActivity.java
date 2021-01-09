@@ -1,22 +1,13 @@
 package com.klasscode.depansmwen.controller.cash;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.PopupWindow;
-import android.widget.Toast;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.klasscode.depansmwen.Model.bean.Cash;
 import com.klasscode.depansmwen.Model.bean.User;
 import com.klasscode.depansmwen.Model.cash.CashDaoImpl;
@@ -25,9 +16,12 @@ import com.klasscode.depansmwen.adapter.CashListAdapter;
 
 import java.util.ArrayList;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 public class CashActivity extends AppCompatActivity {
 
-    private Button btnAddCash;
+    private FloatingActionButton btnAddCash;
     private ListView listCash;
     private int FIRST_CALL_ID=1234;
     private CashDaoImpl dao;
@@ -39,7 +33,7 @@ public class CashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cash);
 
-        btnAddCash = (Button) findViewById(R.id.btnAddCash);
+        btnAddCash = (FloatingActionButton) findViewById(R.id.btnAddCash);
         listCash = (ListView) findViewById(R.id.listCash);
         User user = (User)getIntent().getSerializableExtra("UserConnected");
         dao = new CashDaoImpl(this);

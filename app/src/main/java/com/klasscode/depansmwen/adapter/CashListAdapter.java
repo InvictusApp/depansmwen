@@ -22,6 +22,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 public class CashListAdapter extends BaseAdapter {
 
     private Activity context;
@@ -39,7 +41,7 @@ public class CashListAdapter extends BaseAdapter {
     public static class ViewHolder{
         private TextView lblDescription;
         private TextView lblMontant;
-        private ImageView btnUpdate;
+        private ConstraintLayout btnUpdate;
         private ImageView btnDelete;
 
     }
@@ -55,7 +57,7 @@ public class CashListAdapter extends BaseAdapter {
             line = inflater.inflate(R.layout.item_cash,null,true);
             vh.lblDescription = (TextView) line.findViewById(R.id.textDescription);
             vh.lblMontant = (TextView) line.findViewById(R.id.lblMontant);
-            vh.btnUpdate =(ImageView) line.findViewById(R.id.btnUpdate);
+            vh.btnUpdate =(ConstraintLayout) line.findViewById(R.id.btnUpdate);
             vh.btnDelete =(ImageView) line.findViewById(R.id.btnDelete);
             line.setTag(vh);
         }else{
