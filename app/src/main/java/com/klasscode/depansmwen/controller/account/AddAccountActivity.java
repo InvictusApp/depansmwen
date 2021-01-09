@@ -29,11 +29,9 @@ public class AddAccountActivity extends Activity{
     EditText mEditNumberAcount;
     EditText mEditBalance;
     Button btnAddAccount;
-    ListView mListView;
+
     Account mAccount;
     AccountDao adao;
-    ArrayList<Account> mAccountArrayList;
-    AccountAdapter mAccountAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +39,7 @@ public class AddAccountActivity extends Activity{
         User user = (User) getIntent().getSerializableExtra(MainActivity.USER);
 
         adao = new AccountDao( this );
-        mListView = (ListView)findViewById(R.id.listAccount);
+        //mListView = (ListView)findViewById(R.id.listAccount);
 
         mEditBankName =  ( EditText ) findViewById( R.id.editBankName );
         mEditNumberAcount = ( EditText ) findViewById( R.id.editNumberAccount );
@@ -58,10 +56,13 @@ public class AddAccountActivity extends Activity{
 
                 if(!bankName.equals("") && !accountNumber.equals("") && !balance.equals("")){
                         mAccount = new Account(bankName,Long.parseLong( accountNumber ),Double.parseDouble(balance),true);
-                        mAccount.setIdUser(user.getId());
-                    //mAccount.setIdUser(1);
+                        //mAccount.setIdUser(user.getId());
+                    mAccount.setIdUser(1);
                     mAccount.setCreateAt(new Date());
-                        Log.i("Test",""+adao.insert(mAccount));
+                        //Log.i("Test",""+adao.insert(mAccount));
+                        if(adao.insert(mAccount)) {
+                            Toast.makeText(AddAccountActivity.this, getString(R.string.msg_AccountInsert), Toast.LENGTH_LONG).show();
+                        }
                         //Log.i("Test","BankName " + mAccount.getBankName() + " number "+mAccount.getNumberAccount() + " Balance " + mAccount.getBalance() + "UserId "+ mAccount.getIdUser());
                 }else{
                     Toast.makeText(AddAccountActivity.this, getString(R.string.msg_champVide), Toast.LENGTH_LONG).show();

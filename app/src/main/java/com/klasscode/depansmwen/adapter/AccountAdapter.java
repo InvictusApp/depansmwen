@@ -68,8 +68,8 @@ public class AccountAdapter extends BaseAdapter {
             vh = (ViewHolder)view.getTag();
         }
 
-        vh.textViewNumberAccount.setText(accounts.get(i).getBankName());
-        vh.textViewNumberAccount.setText((int) accounts.get(i).getNumberAccount());
+        vh.textViewBankName.setText(accounts.get(i).getBankName());
+        vh.textViewNumberAccount.setText(""+ accounts.get(i).getNumberAccount());
         final int positionPopup = i;
         vh.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override

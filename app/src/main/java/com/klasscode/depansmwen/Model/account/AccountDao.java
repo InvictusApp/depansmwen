@@ -133,7 +133,7 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
                 account.setIdUser(cursor.getInt(1));
                 account.setBankName(cursor.getString(2));
                 account.setNumberAccount(cursor.getLong(3));
-                account.setBalance(cursor.getLong(4));
+                account.setBalance(cursor.getDouble(4));
                 // account.setActive((boolean)cursor.getString(5));
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 Date d = null;
