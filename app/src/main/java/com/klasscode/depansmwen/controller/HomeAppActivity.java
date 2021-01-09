@@ -11,7 +11,6 @@ import com.klasscode.depansmwen.Model.bean.User;
 import com.klasscode.depansmwen.R;
 import com.klasscode.depansmwen.controller.account.AccountActivity;
 import com.klasscode.depansmwen.controller.cash.CashActivity;
-import com.klasscode.depansmwen.controller.transaction.TransactionActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,7 +33,6 @@ public class HomeAppActivity extends AppCompatActivity {
         btnCompte = (LinearLayout) findViewById(R.id.btnCompte);
         user_connect = (TextView) findViewById(R.id.user_connect);
 //        user_connect.setText(user.getPseudo() + " !");
-        btnTransaction = findViewById( R.id.btnTransaction );
 
         //btnCompte.setText( btnCompte.getText().toString()+ "cmp" +user.getUsername() );
         btnCompte.setOnClickListener(new View.OnClickListener() {
@@ -59,15 +57,15 @@ public class HomeAppActivity extends AppCompatActivity {
             }
         });
 
-        btnTransaction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(HomeAppActivity.this, TransactionActivity.class);
-                intent.putExtra( MainActivity.USER, user);
-                //intent.putExtra( "UserConnected", user);
-                startActivity(intent);
-            }
-        });
+//        btnTransaction.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent(HomeAppActivity.this, TransactionActivity.class);
+//                intent.putExtra( MainActivity.USER, user);
+//                //intent.putExtra( "UserConnected", user);
+//                startActivity(intent);
+//            }
+//        });
     }
 }
