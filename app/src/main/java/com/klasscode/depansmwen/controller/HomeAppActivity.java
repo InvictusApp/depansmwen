@@ -57,15 +57,5 @@ public class HomeAppActivity extends AppCompatActivity {
             }
         });
 
-//        btnTransaction.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Intent intent = new Intent(HomeAppActivity.this, TransactionActivity.class);
-//                intent.putExtra( MainActivity.USER, user);
-//                //intent.putExtra( "UserConnected", user);
-//                startActivity(intent);
-//            }
-//        });
     }
 }

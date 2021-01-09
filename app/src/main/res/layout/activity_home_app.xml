@@ -13,6 +13,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
         app:menu="@menu/bottom_menu"/>
 
     <ImageView
@@ -154,3 +155,30 @@
 
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+=======
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCompte"
+        android:layout_width="133dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/compte"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnCash"
+        android:layout_width="136dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/cash"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCompte" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+>>>>>>> f0491e18c1b9b1987b785c6ea31279cf3960cb57
