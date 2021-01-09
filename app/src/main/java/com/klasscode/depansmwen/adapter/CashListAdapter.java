@@ -73,7 +73,7 @@ public class CashListAdapter extends BaseAdapter {
             public void onClick(View v) {
                 Log.i("DEBUG","In Event delete in row ");
                 dao.delete(cashs.get(positionPopup));
-                cashs = (ArrayList) dao.getAll();
+                cashs = (ArrayList) dao.getAll( positionPopup );
                 Log.d("Country size", "" + cashs.size());
                 notifyDataSetChanged();
             }
@@ -141,7 +141,7 @@ public class CashListAdapter extends BaseAdapter {
                             Log.i("DATABASE","Cash : "+cash);
                             if(dao.update(cash)){
                                 Log.i("DATABASE","In update");
-                                cashs = (ArrayList) dao.getAll();
+                                cashs = (ArrayList) dao.getAll( idUser );
                                 lblMessage.setText(R.string.msg_cashInsert);
                                 notifyDataSetChanged();
                                 pwindo.dismiss();

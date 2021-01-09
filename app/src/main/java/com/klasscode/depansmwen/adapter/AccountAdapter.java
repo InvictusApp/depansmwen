@@ -82,7 +82,7 @@ public class AccountAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 db.delete(accounts.get(i));
-                accounts = (ArrayList)db.getAll();
+                accounts = (ArrayList)db.getAll( i );
                 Log.i("test delete element ", ""+accounts.size());
                 notifyDataSetChanged();
             }
