@@ -93,17 +93,17 @@ public class CashDaoImpl  extends SQLiteOpenHelper implements DatabaseManager<Ca
 
     @Override
     public boolean update(Cash cash) {
-
+        Log.i("DATABASE","update is caling");
         SQLiteDatabase mDb = this.getWritableDatabase();
         ContentValues value = new ContentValues();
         boolean update = false;
-        value.put( FOREIGN_KEY, cash.getIdUser() );
-        value.put( DESCRIPTION, cash.getDescription() );
-        value.put( AMOUNT, cash.getAmount() );
-        value.put( CREATE_AT, cash.getCreateAt().toString() );
-        value.put( UPDATE_AT, cash.getUpdateAt().toString() );
+        value.put( "id_user", cash.getIdUser() );
+        value.put( "description", cash.getDescription() );
+        value.put( "amount", cash.getAmount() );
+        value.put("create_at",cash.getCreateAt());
+        value.put( "update_at", cash.getUpdateAt().toString() );
 
-        int lineNumberUpdate = mDb.update( TABLE_NAME, null, PRIMARY_KEY+ " = ?", new String[]
+        int lineNumberUpdate = mDb.update( TABLE_NAME, value, PRIMARY_KEY+ " = ?", new String[]
         { String.valueOf( cash.getId() ) } );
 
         if( lineNumberUpdate == 0 )
@@ -175,8 +175,8 @@ public class CashDaoImpl  extends SQLiteOpenHelper implements DatabaseManager<Ca
         cash.setIdUser( cursor.getInt( 1 ) );
         cash.setDescription( cursor.getString( 2 ) );
         cash.setAmount( cursor.getLong( 3 ) );
-        cash.setCreateAt( parsingDate( cursor, 4 ) );
-        cash.setUpdateAt( parsingDate( cursor, 5 ) );
+        cash.setCreateAt( cursor.getString(4));
+        cash.setUpdateAt( cursor.getString(5) );
 
         return cash;
     }
