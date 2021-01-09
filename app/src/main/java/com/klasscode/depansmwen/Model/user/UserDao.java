@@ -22,6 +22,31 @@ import java.util.List;
 
 public class UserDao extends SQLiteOpenHelper implements DatabaseManager<User> {
 
+    //Account table name
+    private static final String TABLE_ACCOUNT = "account";
+
+    //Account table Columns names
+    private static final String KEY_ID = "id";
+    private static final String ID_USER = "idUser";
+    private static final String BANK_NAME = "bankName";
+    private static final String NUMBER_ACCOUNT = "numberAccount";
+    private static final String BALANCE = "balance";
+    private static final String IS_ACTIVE = "isActive";
+    private static final String CREATE_AT = "createAt";
+    private static final String UPDATE_AT = "updateAt";
+
+    //Transaction table name
+    private static final String TABLE_TRANSACTION = "Transac";
+
+    //Transaction table Columns names
+    //private static final String KEY_ID = "id";
+    private static final String ID_ACCOUNT = "idAccount";
+    private static final String TYPE = "type";
+    private static final String NUMBER_TRANSFER_ACCOUNT = "numberTransferAccount";
+    private static final String AMOUNT = "amount";
+  //  private static final String CREATE_AT = "createAt";
+//    private static final String UPDATE_AT = "updateAt";
+
 
     public UserDao(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,6 +66,41 @@ public class UserDao extends SQLiteOpenHelper implements DatabaseManager<User> {
                 ")";
 
         db.execSQL(create_user_table);
+        Log.i("DATABASE",db.getPath()+"/"+db.isOpen());
+        String create_user_table2= "CREATE TABLE cash (" +
+                "id integer primary key autoincrement," +
+                "id_user integer not null," +
+                "description text not null," +
+                "amount double not null," +
+                "create_at date default null," +
+                "update_at date default null" +
+                ")";
+
+        db.execSQL(create_user_table2);
+
+        String create_table_account = "CREATE TABLE " + TABLE_ACCOUNT + "("
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + ID_USER + " INTEGER NOT NULL,"
+                + BANK_NAME + " TEXT NOT NULL,"
+                + NUMBER_ACCOUNT + " LONG NOT NULL,"
+                + BALANCE + " double,"
+                + IS_ACTIVE + " TEXT,"
+                + CREATE_AT + " date,"
+                + UPDATE_AT + " date"
+                + ")";
+        db.execSQL(create_table_account);
+
+        String create_table_transaction = "CREATE TABLE "+ TABLE_TRANSACTION +"("
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + ID_ACCOUNT + " INTEGER NOT NULL,"
+                + TYPE + " TEXT,"
+                + NUMBER_TRANSFER_ACCOUNT + " LONG,"
+                + AMOUNT + " double,"
+                + CREATE_AT + " date,"
+                + UPDATE_AT + " date"
+                +")";
+        db.execSQL(create_table_transaction);
+
         Log.i("DATABASE","creation de la table user");
     }
 

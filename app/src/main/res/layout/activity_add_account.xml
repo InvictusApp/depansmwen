@@ -1,127 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".controller.account.AccountActivity">
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".controller.account.AddAccountActivity">
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="41dp"
-            android:background="@color/white"
-            android:paddingStart="6dp"
-            android:paddingEnd="16dp"
-            android:layout_marginLeft="41dp"
-            android:text="Welcome to activity add account"
-            android:textAllCaps="true"
-            android:textColor="@color/secondary_text"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            android:paddingLeft="6dp"
-            android:paddingRight="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="41dp"
-                android:background="@color/white"
-                android:paddingStart="6dp"
-                android:paddingEnd="16dp"
-                android:layout_marginLeft="41dp"
-                android:text="Nom de la Banque"
-                android:textAllCaps="true"
-                android:textColor="@color/secondary_text"
-                android:textStyle="bold"
-                android:textSize="10dp"
-                android:paddingLeft="6dp"
-                android:paddingRight="16dp" />
-
-            <EditText
-                android:id="@+id/txtBankName"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:background="@null"
-                android:hint="Nom de Banque"
-                android:importantForAutofill="no"
-                android:inputType="text"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textColor="@color/primary_text"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="41dp"
-                android:background="@color/white"
-                android:paddingStart="6dp"
-                android:paddingEnd="6dp"
-                android:layout_marginLeft="41dp"
-                android:text="Numero Compte"
-                android:textAllCaps="true"
-                android:textColor="@color/secondary_text"
-                android:textStyle="bold"
-                android:textSize="10dp"/>
-
-            <EditText
-                android:id="@+id/txtNumberAccount"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:background="@null"
-                android:hint="Numero Compte"
-                android:importantForAutofill="no"
-                android:inputType="text"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textColor="@color/primary_text"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="41dp"
-                android:background="@color/white"
-                android:paddingStart="6dp"
-                android:paddingEnd="6dp"
-                android:layout_marginLeft="41dp"
-                android:text="Balance"
-                android:textAllCaps="true"
-                android:textColor="@color/secondary_text"
-                android:textStyle="bold"
-                android:textSize="10dp"/>
-
-            <EditText
-                android:id="@+id/txtBalance"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:background="@null"
-                android:hint="Balance"
-                android:importantForAutofill="no"
-                android:inputType="text"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textColor="@color/primary_text"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
+        android:layout_height="wrap_content"
+        android:text="BANK NAME"
+        android:id="@+id/txBankName"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editBankName"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Numero Compte"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:id="@+id/editNumberAccount"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Balance"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:id="@+id/edit_Balance"/>
 
     <Button
-        android:id="@+id/btn_account_add"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/bg_button"
-        android:text="Ajouter Le Compte"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"/>
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:id="@+id/btnAddAccount"/>
 </LinearLayout>

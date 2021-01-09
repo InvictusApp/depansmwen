@@ -9,15 +9,35 @@ public class Account implements Serializable {
     private int idUser;
     private String bankName;
     private long numberAccount;
-    private long balance;
+    private double balance;
     private boolean isActive;
+
+    public Account(int idUser, String bankName, long numberAccount, double balance, boolean isActive) {
+        this.idUser = idUser;
+        this.bankName = bankName;
+        this.numberAccount = numberAccount;
+        this.balance = balance;
+        this.isActive = isActive;
+    }
+
     private String createAt;
     private String updateAt;
 
     public Account() {
     }
 
+    public Account(int idUser, String bankName, long numberAccount, double balance, boolean isActive, String createAt, String updateAt) {
+        this.idUser = idUser;
+        this.bankName = bankName;
+        this.numberAccount = numberAccount;
+        this.balance = balance;
+        this.isActive = isActive;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
+    }
+
     public Account(int id, int idUser, String bankName, long numberAccount, long balance, boolean isActive, String createAt, String updateAt) {
+
         this.id = id;
         this.idUser = idUser;
         this.bankName = bankName;
@@ -28,7 +48,7 @@ public class Account implements Serializable {
         this.updateAt = updateAt;
     }
 
-    public Account(String bankName, long numberAccount, long balance, boolean isActive) {
+    public Account(String bankName, long numberAccount, double balance, boolean isActive) {
         this.bankName = bankName;
         this.numberAccount = numberAccount;
         this.balance = balance;
@@ -68,11 +88,11 @@ public class Account implements Serializable {
         this.numberAccount = numberAccount;
     }
 
-    public long getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(long balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
