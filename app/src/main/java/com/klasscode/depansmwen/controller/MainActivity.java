@@ -3,6 +3,7 @@ package com.klasscode.depansmwen.controller;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String USER = "com.klasscode.depansmwen.controller.USER";
     private UserDao dao;
+    public Resources resources;
 
 
     @Override
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         dao = new UserDao(this);
+        //RESOURCES = getResources();
 
         //TEST
        /*AccountDao adao = new AccountDao(this);
@@ -116,12 +119,12 @@ public class MainActivity extends AppCompatActivity {
                 String password = txtPassword.getText().toString();
 
                 if(pseudo.equals("") || password.equals("")){
-                    Toast.makeText(MainActivity.this,R.string.msg_champVide,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,resources.getString(R.string.msg_champVide),Toast.LENGTH_SHORT).show();
                 }else{
 
                     User user = dao.checkLogin(pseudo,password);
                     if(user != null){
-                        Toast.makeText(MainActivity.this, R.string.msg_connection_reussi,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, resources.getString(R.string.msg_connection_reussi),Toast.LENGTH_SHORT).show();
                         Log.i("SUCCESS","User Connected");
                         txtPseudo.setText("");
                         txtPassword.setText("");
@@ -132,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
 
                     }else{
-                        Toast.makeText(MainActivity.this, R.string.msg_connection_echec,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, resources.getString(R.string.msg_connection_echec),Toast.LENGTH_SHORT).show();
                         txtPassword.setText("");
                         Log.i("ERROR","User not Connected");
                     }

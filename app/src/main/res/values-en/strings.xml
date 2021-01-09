@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DepansMwen</string>
+    <string name="slogan">record all your expenses</string>
+    <string name="text_sign_in">Log in</string>
+    <string name="pseudo">Pseudo</string>
+    <string name="votre_pseudo">Your username</string>
+    <string name="password_hint">**********</string>
+    <string name="password">password</string>
+    <string name="don_t_have_account">Don\'t have account</string>
+    <string name="create_a_new_account">Create a new account</string>
+    <string name="nouveau_compte_utilisateur">New User Account</string>
+    <string name="s_inscrire">Register</string>
+    <string name="username_hint">Pierre Etienne</string>
+    <string name="pseudo_hint">Pierro7</string>
+    <string name="username">Username</string>
+    <string name="votre_email">Your email</string>
+    <string name="mail">Email</string>
+    <string name="confpassword">Confirm Password</string>
+    <string name="already_have_account">Already have accout</string>
+    <string name="msg_champVide">Fill in all the fields</string>
+    <string name="msg_succes_creation_compte">User Account Create</string>
+    <string name="msg_echec_creation_compte">Account creation failed</string>
+    <string name="msg_pseudo_already_use">Username already in use</string>
+    <string name="msg_password_not_same">Passwords do not match</string>
+    <string name="msg_connection_reussi">User Login successfully</string>
+    <string name="msg_connection_echec">Incorrect username / password</string>
+    <string name="compte">Account</string>
+    <string name="transaction">Transaction</string>
+    <string name="rapport_statistique">Statistical Report</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="cash">Cash</string>
+
+    <string name="msg_montantIcorect">Incorrect amount</string>
+    <string name="msg_cashInsert">Cash Inserter Successfully</string>
+    <string name="msg_cashFailed">Failed to insert your Cash</string>
+
+    <string name="add_account_btn">Add an account</string>
+    <string name="msg_AccountInsert">Account insert With success</string>
+
+</resources>

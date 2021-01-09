@@ -6,17 +6,17 @@
     <string name="votre_pseudo">votre pseudo</string>
     <string name="password_hint">**********</string>
     <string name="password">password</string>
-    <string name="don_t_have_account">Don\'t have account</string>
+    <string name="don_t_have_account">Je n\'ai pas de compte</string>
     <string name="create_a_new_account">Create a new account</string>
     <string name="nouveau_compte_utilisateur">Nouveau Compte Utilisateur</string>
     <string name="s_inscrire">S\'inscrire</string>
     <string name="username_hint">Pierre Etienne</string>
     <string name="pseudo_hint">Pierro7</string>
-    <string name="username">Username</string>
+    <string name="username">Nom d\'utilisateur</string>
     <string name="votre_email">Votre Email</string>
     <string name="mail">Email</string>
     <string name="confpassword">Confirm Password</string>
-    <string name="already_have_account">Already have accout</string>
+    <string name="already_have_account">Vous avez déjà un compte</string>
     <string name="msg_champVide">Remplissez tout les Champs</string>
     <string name="msg_succes_creation_compte">Compte Utilisateur Cree !!</string>
     <string name="msg_echec_creation_compte">La creation du compte a echoue</string>
@@ -27,7 +27,7 @@
     <string name="compte">Compte</string>
     <string name="transaction">Transaction</string>
     <string name="rapport_statistique">Rapport Statistique</string>
-    <string name="dashboard">Dashboard</string>
+    <string name="dashboard">Tableau de Bord</string>
     <string name="cash">Cash</string>
 
     <string name="msg_montantIcorect">Montant Incorrect</string>
@@ -35,6 +35,6 @@
     <string name="msg_cashFailed">Echec d\'insertion de votre Cash</string>
 
     <string name="add_account_btn">Ajouter un Compte</string>
-    <string name="msg_AccountInsert">Account insert With success</string>
+    <string name="msg_AccountInsert">Insertion de compte avec succès</string>
 
 </resources>
