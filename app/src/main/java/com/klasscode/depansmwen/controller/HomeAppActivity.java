@@ -55,7 +55,7 @@ public class HomeAppActivity extends AppCompatActivity {
             }
         });
 
-        btnTransaction.setOnClickListener(new View.OnClickListener() {
+        /*btnTransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -64,6 +64,6 @@ public class HomeAppActivity extends AppCompatActivity {
                 //intent.putExtra( "UserConnected", user);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 }
