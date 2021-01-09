@@ -11,13 +11,24 @@ public class Account implements Serializable {
     private long numberAccount;
     private double balance;
     private boolean isActive;
-    private Date createAt;
-    private Date updateAt;
+    private String createAt;
+    private String updateAt;
 
     public Account() {
     }
 
-    public Account(int id, int idUser, String bankName, long numberAccount, double balance, boolean isActive, Date createAt, Date updateAt) {
+    public Account(int idUser, String bankName, long numberAccount, double balance, boolean isActive, String createAt, String updateAt) {
+        this.idUser = idUser;
+        this.bankName = bankName;
+        this.numberAccount = numberAccount;
+        this.balance = balance;
+        this.isActive = isActive;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
+    }
+
+    public Account(int id, int idUser, String bankName, long numberAccount, long balance, boolean isActive, String createAt, String updateAt) {
+
         this.id = id;
         this.idUser = idUser;
         this.bankName = bankName;
@@ -26,6 +37,14 @@ public class Account implements Serializable {
         this.isActive = isActive;
         this.createAt = createAt;
         this.updateAt = updateAt;
+    }
+
+    public Account(int idUser, String bankName, long numberAccount, double balance, boolean isActive) {
+        this.idUser = idUser;
+        this.bankName = bankName;
+        this.numberAccount = numberAccount;
+        this.balance = balance;
+        this.isActive = isActive;
     }
 
     public Account(String bankName, long numberAccount, double balance, boolean isActive) {
@@ -84,19 +103,19 @@ public class Account implements Serializable {
         isActive = active;
     }
 
-    public Date getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 
-    public Date getUpdateAt() {
+    public String getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
+    public void setUpdateAt(String updateAt) {
         this.updateAt = updateAt;
     }
 }

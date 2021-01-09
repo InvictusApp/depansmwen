@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
@@ -13,6 +15,8 @@ import com.klasscode.depansmwen.Model.bean.User;
 import com.klasscode.depansmwen.Model.cash.CashDaoImpl;
 import com.klasscode.depansmwen.R;
 import com.klasscode.depansmwen.adapter.CashListAdapter;
+import com.klasscode.depansmwen.controller.MainActivity;
+import com.klasscode.depansmwen.controller.account.AccountActivity;
 
 import java.util.ArrayList;
 
@@ -27,6 +31,7 @@ public class CashActivity extends AppCompatActivity {
     private CashDaoImpl dao;
     private ArrayList<Cash> cashs;
     private CashListAdapter adapter;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +40,9 @@ public class CashActivity extends AppCompatActivity {
 
         btnAddCash = (FloatingActionButton) findViewById(R.id.btnAddCash);
         listCash = (ListView) findViewById(R.id.listCash);
-        User user = (User)getIntent().getSerializableExtra("UserConnected");
+        user = (User)getIntent().getSerializableExtra( MainActivity.USER );
         dao = new CashDaoImpl(this);
-        cashs = (ArrayList<Cash>) dao.getAll();
+        cashs = (ArrayList<Cash>) dao.getAll( MainActivity.USERID );
         adapter = new CashListAdapter(this,cashs,dao);
         for(Cash cash: cashs){
             Log.i("DEBUG","Cash "+cash);
@@ -50,11 +55,18 @@ public class CashActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(CashActivity.this, AddCashActivity.class);
-                intent.putExtra("UserConnected",user);
+                intent.putExtra(MainActivity.USER, user);
                 startActivityForResult(intent,FIRST_CALL_ID);
 
             }
         });
+
+       /* listCash.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(CashActivity.this, MainActivity.USERID, Toast.LENGTH_LONG).show();
+            }
+        });*/
 
     }
 
@@ -63,7 +75,7 @@ public class CashActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == FIRST_CALL_ID && resultCode == 200){
             Log.i("DEBUG","Callback On activity ok");
-            adapter.cashs= (ArrayList<Cash>) dao.getAll();
+            adapter.cashs= (ArrayList<Cash>) dao.getAll( MainActivity.USERID );
             ((BaseAdapter)listCash.getAdapter()).notifyDataSetChanged();
         }
     }

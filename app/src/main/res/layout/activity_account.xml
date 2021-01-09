@@ -72,6 +72,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ListView
+        android:id="@+id/mListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:overScrollMode="never"

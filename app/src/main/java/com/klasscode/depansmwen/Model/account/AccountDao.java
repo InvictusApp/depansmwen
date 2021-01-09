@@ -104,25 +104,27 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
            account.setBankName(cursor.getString(2));
            account.setNumberAccount(cursor.getLong(3));
            account.setBalance(cursor.getLong(4));
+           account.setCreateAt( cursor.getString( 6 ) );
           // account.setActive((boolean)cursor.getString(5));
-           SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+          /* SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
            Date d = null;
            try {
                d = dateFormat.parse(cursor.getString(6));
            } catch (ParseException e) {
                e.printStackTrace();
            }
-           account.setCreateAt(d);
+           account.setCreateAt(d);*/
        }
         return account;
     }
 
     @Override
-    public List<Account> getAll() {
+    public List<Account> getAll( int id ) {
         List<Account> accountList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        String selectQuery = "SELECT * FROM " + TABLE_ACCOUNT;
-        Cursor cursor = db.rawQuery(selectQuery,null);
+        String selectQuery = "SELECT * FROM " + TABLE_ACCOUNT+ " WHERE idUser = ?";
+        Cursor cursor = db.rawQuery(selectQuery,
+                new String[]{ String.valueOf( id ) });
 
         if(cursor.moveToFirst()){
             do{
@@ -131,16 +133,17 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
                 account.setIdUser(cursor.getInt(1));
                 account.setBankName(cursor.getString(2));
                 account.setNumberAccount(cursor.getLong(3));
+                account.setCreateAt( cursor.getString( 6 ) );
                 account.setBalance(cursor.getDouble(4));
                 // account.setActive((boolean)cursor.getString(5));
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                /*SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 Date d = null;
                 try {
                     d = dateFormat.parse(cursor.getString(6));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                account.setCreateAt(d);
+                account.setCreateAt(d);*/
                 accountList.add(account);
             }while(cursor.moveToNext());
         }

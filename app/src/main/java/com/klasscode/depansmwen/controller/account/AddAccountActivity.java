@@ -8,6 +8,7 @@ import com.klasscode.depansmwen.adapter.AccountAdapter;
 import com.klasscode.depansmwen.controller.HomeAppActivity;
 import com.klasscode.depansmwen.controller.MainActivity;
 import com.klasscode.depansmwen.controller.SignUpActivity;
+import com.klasscode.depansmwen.controller.cash.AddCashActivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,27 +17,27 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AddAccountActivity extends Activity{
     private User user;
+    private AccountDao dao;
     EditText mEditBankName;
     EditText mEditNumberAcount;
     EditText mEditBalance;
     Button btnAddAccount;
 
-    Account mAccount;
-    AccountDao adao;
+    private Account mAccount;
+    private AccountDao adao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_account);
-        User user = (User) getIntent().getSerializableExtra(MainActivity.USER);
+
+        user = (User) getIntent().getSerializableExtra(MainActivity.USER);
 
         adao = new AccountDao( this );
         //mListView = (ListView)findViewById(R.id.listAccount);
@@ -55,17 +56,23 @@ public class AddAccountActivity extends Activity{
                 String balance = mEditBalance.getText().toString();
 
                 if(!bankName.equals("") && !accountNumber.equals("") && !balance.equals("")){
-                        mAccount = new Account(bankName,Long.parseLong( accountNumber ),Double.parseDouble(balance),true);
-                        //mAccount.setIdUser(user.getId());
-                    mAccount.setIdUser(1);
-                    mAccount.setCreateAt(new Date());
+                    SimpleDateFormat dformat = new SimpleDateFormat("dd-MM-yyyy");
+                    String date = dformat.format(new Date());
+                        mAccount = new Account(bankName,Long.parseLong( accountNumber ),
+                                Double.parseDouble(balance),true );
+                        mAccount.setIdUser(MainActivity.USERID);
+                    mAccount.setCreateAt(date);
                         //Log.i("Test",""+adao.insert(mAccount));
                         if(adao.insert(mAccount)) {
                             Toast.makeText(AddAccountActivity.this, getString(R.string.msg_AccountInsert), Toast.LENGTH_LONG).show();
+                            //Inform the list view the change of cash
+                            setResult(200);
+                            AddAccountActivity.this.finish();
                         }
                         //Log.i("Test","BankName " + mAccount.getBankName() + " number "+mAccount.getNumberAccount() + " Balance " + mAccount.getBalance() + "UserId "+ mAccount.getIdUser());
                 }else{
                     Toast.makeText(AddAccountActivity.this, getString(R.string.msg_champVide), Toast.LENGTH_LONG).show();
+
                 }
 
             }

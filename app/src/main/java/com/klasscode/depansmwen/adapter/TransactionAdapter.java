@@ -83,7 +83,7 @@ public class TransactionAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 db.delete(mTransactionArrayList.get(i));
-                mTransactionArrayList = (ArrayList)db.getAll();
+                mTransactionArrayList = (ArrayList)db.getAll( i );
                 Log.i("test delete element ", ""+mTransactionArrayList.size());
                 notifyDataSetChanged();
             }

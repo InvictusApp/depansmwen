@@ -3,53 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-
-
     android:orientation="vertical"
-
+    android:layout_height="match_parent"
     tools:context=".controller.account.AccountActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BANK NAME"
+        android:text="Montant"
         android:id="@+id/txBankName"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editBankName"/>
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-
-        >
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ACTIVE"
-            android:checked="true"/>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="INACTIVE"/>
-    </RadioGroup>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Numero Compte"/>
+        android:text="Numero Compte Transfert"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:id="@+id/editNumberAccount"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Balance"/>
+    
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,9 +33,8 @@
         android:id="@+id/edit_Balance"/>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:text="SAVE"
-        android:id="@+id/btnAddAccount"/>
+        android:id="@+id/btnAddTransaction"/>
 </LinearLayout>

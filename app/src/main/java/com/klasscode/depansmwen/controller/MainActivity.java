@@ -1,6 +1,7 @@
 package com.klasscode.depansmwen.controller;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtPassword;
     private Button btnLogin;
     private TextView createAccout;
-
+    public static int USERID = 0;
+    public static String USERNAME = "";
     public static final String USER = "com.klasscode.depansmwen.controller.USER";
     private UserDao dao;
 
@@ -48,7 +50,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //initi
+        //SharePreferences in order to keep a user info
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
 
+       /* SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("username", null);
+        editor.putInt("userId",0);
+        editor.apply();*/
+
+        //Check if user already log in
+        USERNAME = getPreferences(MODE_PRIVATE).getString("username", null);
+        USERID =  getPreferences(MODE_PRIVATE).getInt("userId", 0);
+
+        if(USERNAME != null){
+            Intent intent = new Intent(MainActivity.this,HomeAppActivity.class);
+            startActivity(intent);
+        }
 
         dao = new UserDao(this);
 
@@ -124,6 +142,17 @@ public class MainActivity extends AppCompatActivity {
                         Log.i("SUCCESS","User Connected");
                         txtPseudo.setText("");
                         txtPassword.setText("");
+
+
+                        //Store a user info
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("username", user.getUsername());
+                        editor.putInt("userId",user.getId());
+                        editor.apply();
+                        USERNAME = user.getUsername();
+                        USERID = user.getId();
+                        //Toast.makeText(MainActivity.this, "userId "+user.getId() + "Username "+ user.getUsername(),Toast.LENGTH_SHORT).show();
+
                         //Lancer la fenetre principal
                         Intent intent = new Intent(MainActivity.this,HomeAppActivity.class);
                         //intent.putExtra("UserConnected", user);

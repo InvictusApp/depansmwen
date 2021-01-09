@@ -98,22 +98,23 @@ public class TransactionDao extends SQLiteOpenHelper implements DatabaseManager<
             tr.setType(cursor.getString(2));
             tr.setNumberTransferAccount(cursor.getLong(3));
             tr.setAmount(cursor.getLong(4));
+            tr.setCreateAt(cursor.getString(5));
 
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            /*SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
             Date d = null;
             try {
                 d = dateFormat.parse(cursor.getString(5));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            tr.setCreateAt(d);
+            tr.setCreateAt(d);*/
 
         }
         return tr;
     }
 
     @Override
-    public List<Transaction> getAll() {
+    public List<Transaction> getAll( int id ) {
         List<Transaction> transactionList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         String sqlQuery = "SELECT * FROM " + TABLE_TRANSACTION;
@@ -127,15 +128,16 @@ public class TransactionDao extends SQLiteOpenHelper implements DatabaseManager<
                 tr.setType(cursor.getString(2));
                 tr.setNumberTransferAccount(cursor.getLong(3));
                 tr.setAmount(cursor.getLong(4));
+                tr.setCreateAt(cursor.getString(5));
 
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                /*SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 Date d = null;
                 try {
                     d = dateFormat.parse(cursor.getString(5));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                tr.setCreateAt(d);
+                tr.setCreateAt(d);*/
 
                 transactionList.add(tr);
             }while (cursor.moveToNext());
