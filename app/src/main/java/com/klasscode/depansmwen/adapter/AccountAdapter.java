@@ -1,6 +1,7 @@
 package com.klasscode.depansmwen.adapter;
 
 import android.app.Activity;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupWindow;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -110,11 +112,23 @@ public class AccountAdapter extends BaseAdapter {
         final EditText txtBankN = (EditText) layout.findViewById(R.id.editBankNameM);
         final EditText txtNumberAccount = (EditText) layout.findViewById(R.id.editNumberAccountM);
         final EditText txBalance = (EditText) layout.findViewById(R.id.edit_BalanceM);
-
+        //Integrate klasscode
+        final RadioButton radioActive = (RadioButton) layout.findViewById(R.id.active);
+        final RadioButton radioInactive = (RadioButton) layout.findViewById(R.id.inactive);
+        boolean accountActived = false;
 
         txtBankN.setText(""+accounts.get(positionPopup).getBankName());
         txtNumberAccount.setText(""+accounts.get(positionPopup).getNumberAccount());
         txBalance.setText(""+accounts.get(positionPopup).getBalance());
+        //Integrate klasscode
+        accountActived = accounts.get(positionPopup).isActive();
+
+        if(accountActived){
+            radioActive.setChecked(true);
+        }
+        if(!accountActived){
+            radioInactive.setChecked(true);
+        }
         int id = accounts.get(positionPopup).getId();
         int idUser = accounts.get(positionPopup).getIdUser();
         //String creat_at = cashs.get(positionPopup).getCreateAt();

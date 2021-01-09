@@ -137,12 +137,12 @@ public class MainActivity extends AppCompatActivity {
                 String password = txtPassword.getText().toString();
 
                 if(pseudo.equals("") || password.equals("")){
-                    Toast.makeText(MainActivity.this,resources.getString(R.string.msg_champVide),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,R.string.msg_champVide,Toast.LENGTH_SHORT).show();
                 }else{
 
                     User user = dao.checkLogin(pseudo,password);
                     if(user != null){
-                        Toast.makeText(MainActivity.this, resources.getString(R.string.msg_connection_reussi),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, R.string.msg_connection_reussi,Toast.LENGTH_SHORT).show();
                         Log.i("SUCCESS","User Connected");
                         txtPseudo.setText("");
                         txtPassword.setText("");
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
 
                     }else{
-                        Toast.makeText(MainActivity.this, resources.getString(R.string.msg_connection_echec),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, R.string.msg_connection_echec,Toast.LENGTH_SHORT).show();
                         txtPassword.setText("");
                         Log.i("ERROR","User not Connected");
                     }
