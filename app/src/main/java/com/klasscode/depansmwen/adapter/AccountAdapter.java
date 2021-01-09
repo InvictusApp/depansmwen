@@ -1,6 +1,7 @@
 package com.klasscode.depansmwen.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -16,7 +17,9 @@ import android.widget.Toast;
 import com.klasscode.depansmwen.Model.account.AccountDao;
 import com.klasscode.depansmwen.Model.bean.Account;
 import com.klasscode.depansmwen.Model.bean.Cash;
+import com.klasscode.depansmwen.Model.bean.Transaction;
 import com.klasscode.depansmwen.R;
+import com.klasscode.depansmwen.controller.HomeAppActivity;
 import com.klasscode.depansmwen.controller.MainActivity;
 import com.klasscode.depansmwen.controller.account.AccountActivity;
 
@@ -119,42 +122,65 @@ public class AccountAdapter extends BaseAdapter {
         int idUser = accounts.get(positionPopup).getIdUser();
         //String creat_at = cashs.get(positionPopup).getCreateAt();
 
-       /* Button update = (Button) layout.findViewById(R.id.btnUpdateAccount);
+       Button update = (Button) layout.findViewById(R.id.btnUpdateAccount);
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                final EditText txtBankN = (EditText) layout.findViewById(R.id.editBankNameM);
-        final EditText txtNumberAccount = (EditText) layout.findViewById(R.id.editNumberAccountM);
-        final EditText txBalance = (EditText) layout.findViewById(R.id.edit_BalanceM);
-                if(!d.equals("") && !montant.equals("")) {
+                 String bankN =  txtBankN.getText().toString().trim();
+                 String numberAc = txtNumberAccount.getText().toString().trim();
+                 String balance = txBalance.getText().toString().trim();
+
+                if(!bankN.equals("") && !numberAc.equals("") && !balance.equals("")) {
                     DecimalFormat df = new DecimalFormat("0.00");
                     try {
-                        Number num = df.parse(montant);
+                        Number num = df.parse(balance);
                         Double mon = num.doubleValue();
                         if (mon != 0.0d) {
-                            Log.i("DATABASE","Montant is ok");
                             SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
                             String date =f.format(new Date());
-                            Cash cash = new Cash(id,idUser,description,mon,creat_at,date);
-                            Log.i("DATABASE","Cash : "+cash);
-                            if(dao.update(cash)){
+                            Account account = new Account(bankN,Long.parseLong(numberAc),mon,true);
+                            account.setUpdateAt(date);
+                            account.setIdUser(idUser);
+                            account.setId(id);
+                           // Log.i("DATABASE","Cash : "+cash);
+                            if(db.update(account)){
                                 Log.i("DATABASE","In update");
-                                cashs = (ArrayList) dao.getAll( idUser );
-                                lblMessage.setText(R.string.msg_cashInsert);
+                                accounts = (ArrayList) db.getAll( idUser );
+                                //lblMessage.setText(R.string.msg_cashInsert);
                                 notifyDataSetChanged();
-                                pwindo.dismiss();
+                                pwindowAccount.dismiss();
                             }else{
-                                lblMessage.setText(R.string.msg_cashFailed);
+                                //lblMessage.setText(R.string.msg_cashFailed);
                             }
                         }else {
-                            lblMessage.setText(R.string.msg_montantIcorect);
+                            //lblMessage.setText(R.string.msg_montantIcorect);
                         }
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
                 }
             }
-        });*/
+        });
+
+        Button btnList = (Button) layout.findViewById(R.id.btnListTransac);
+        btnList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, Transaction.class);
+                //intent.putExtra( MainActivity.USER, user);
+                //intent.putExtra( "UserConnected", user);
+                context.startActivity(intent);
+            }
+        });
+
+        Button cancel = (Button) layout.findViewById(R.id.btnCancelAccount);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pwindowAccount.dismiss();
+            }
+        });
+
     }
 }

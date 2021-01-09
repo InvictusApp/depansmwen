@@ -30,7 +30,7 @@ public class HomeAppActivity extends AppCompatActivity {
 
         btnCash = findViewById(R.id.btnCash);
         btnCompte = findViewById(R.id.btnCompte);
-        btnTransaction = findViewById( R.id.btnTransaction );
+        //btnTransaction = findViewById( R.id.btnTransaction );
 
         //btnCompte.setText( btnCompte.getText().toString()+ "cmp" +user.getUsername() );
         btnCompte.setOnClickListener(new View.OnClickListener() {
