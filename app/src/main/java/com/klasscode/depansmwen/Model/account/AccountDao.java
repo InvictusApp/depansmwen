@@ -1,15 +1,12 @@
-package com.klasscode.depansmwen.Model;
+package com.klasscode.depansmwen.Model.account;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
+import com.klasscode.depansmwen.Model.DatabaseManager;
 import com.klasscode.depansmwen.Model.bean.Account;
 
 import java.text.ParseException;
@@ -17,6 +14,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import androidx.annotation.Nullable;
 
 public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Account> {
 
@@ -39,7 +38,7 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String create_table_account = "CREATE TABLE " + TABLE_ACCOUNT + "("
+        /*String create_table_account = "CREATE TABLE " + TABLE_ACCOUNT + "("
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + ID_USER + " INTEGER NOT NULL,"
                 + BANK_NAME + " TEXT NOT NULL,"
@@ -50,7 +49,7 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
                 + UPDATE_AT + " date"
                 + ")";
         db.execSQL(create_table_account);
-        Log.i("TABLE ACCOUNT","creation success");
+        Log.i("TABLE ACCOUNT","creation success");*/
     }
 
     @Override
@@ -72,8 +71,8 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
         values.put(CREATE_AT,account.getCreateAt().toString());
         long f = db.insert(TABLE_ACCOUNT,null, values);
         db.close();
-        Log.i("TABLE ACCOUNT","insert success " + f);
-        return true;
+       // Log.i("TABLE ACCOUNT","insert success " + f);
+        return (f > 0) ? true : false;
     }
 
     @Override
@@ -88,7 +87,7 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
         values.put(IS_ACTIVE,account.isActive());
         values.put(UPDATE_AT,account.getUpdateAt().toString());
         long f = db.update(TABLE_ACCOUNT, values, KEY_ID + " = ?", new String[]{String.valueOf(account.getId())});
-        return true;
+        return (f != 0) ? true : false;
     }
 
     @Override
@@ -125,8 +124,6 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
         String selectQuery = "SELECT * FROM " + TABLE_ACCOUNT;
         Cursor cursor = db.rawQuery(selectQuery,null);
 
-
-
         if(cursor.moveToFirst()){
             do{
                 Account account = new Account();
@@ -134,7 +131,7 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
                 account.setIdUser(cursor.getInt(1));
                 account.setBankName(cursor.getString(2));
                 account.setNumberAccount(cursor.getLong(3));
-                account.setBalance(cursor.getLong(4));
+                account.setBalance(cursor.getDouble(4));
                 // account.setActive((boolean)cursor.getString(5));
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 Date d = null;
@@ -153,8 +150,8 @@ public class AccountDao extends SQLiteOpenHelper implements DatabaseManager<Acco
     @Override
     public boolean delete(Account account) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_ACCOUNT,KEY_ID + " = ?", new String[]{String.valueOf(account.getId())});
+        long f = db.delete(TABLE_ACCOUNT,KEY_ID + " = ?", new String[]{String.valueOf(account.getId())});
         db.close();
-        return true;
+        return (f > 0) ? true : false;
     }
 }

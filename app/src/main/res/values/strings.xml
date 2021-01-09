@@ -40,12 +40,14 @@
     <string name="close_button_add_cash">Bouton Fermeture add Cash</string>
     <string name="cash_add_description">Description</string>
     <string name="cash_add_amount">Montant</string>
-    <string name="msg_montantIcorect">Montant Incorrect</string>
-    <string name="msg_cashInsert">Cash Insere avec Succes</string>
-    <string name="msg_cashFailed">Echec d\'insertion de votre Cash</string>
     <string name="btn_save">Save</string>
     <string name="b_w_logo_depansmwen">Black and white logo DepansMwen</string>
     <string name="cash_update_description">Description</string>
     <string name="update_cash">Modification Infos Cash</string>
     <string name="searchCashPlaceholder">Rechercher un cash</string>
+    <string name="msg_montantIcorect">Montant Incorrect</string>
+    <string name="msg_cashInsert">Cash Insere avec Succes</string>
+    <string name="msg_cashFailed">Echec d\'insertion de votre Cash</string>
+    <string name="add_account_btn">Ajouter un Compte</string>
+    <string name="msg_AccountInsert">Account insert With success</string>
 </resources>

@@ -11,6 +11,7 @@ import com.klasscode.depansmwen.Model.bean.Cash;
 import com.klasscode.depansmwen.Model.bean.User;
 import com.klasscode.depansmwen.Model.cash.CashDaoImpl;
 import com.klasscode.depansmwen.R;
+import com.klasscode.depansmwen.controller.MainActivity;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -37,7 +38,7 @@ public class AddCashActivity extends AppCompatActivity {
         txtDescription = (EditText)findViewById(R.id.txtDescription);
         txtMontant = (EditText) findViewById(R.id.txtAmount);
         btnSave = (Button) findViewById(R.id.btnSave);
-        User user = (User) getIntent().getSerializableExtra("UserConnected");
+        User user = (User) getIntent().getSerializableExtra(MainActivity.USER);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +56,9 @@ public class AddCashActivity extends AppCompatActivity {
                         Double mon = num.doubleValue();
                         if(mon!=0.0d){
                             Cash cash = new Cash();
-                            cash.setIdUser(user.getId());
+                            cash.setIdUser(1);
+                            //cash.setIdUser(1);
+                            //cash.setId(1);
                             cash.setDescription(d);
                             cash.setAmount(mon);
                             SimpleDateFormat dformat = new SimpleDateFormat("dd-MM-yyyy");

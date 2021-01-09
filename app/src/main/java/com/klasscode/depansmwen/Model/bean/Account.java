@@ -9,7 +9,7 @@ public class Account implements Serializable {
     private int idUser;
     private String bankName;
     private long numberAccount;
-    private long balance;
+    private double balance;
     private boolean isActive;
     private Date createAt;
     private Date updateAt;
@@ -17,7 +17,7 @@ public class Account implements Serializable {
     public Account() {
     }
 
-    public Account(int id, int idUser, String bankName, long numberAccount, long balance, boolean isActive, Date createAt, Date updateAt) {
+    public Account(int id, int idUser, String bankName, long numberAccount, double balance, boolean isActive, Date createAt, Date updateAt) {
         this.id = id;
         this.idUser = idUser;
         this.bankName = bankName;
@@ -28,7 +28,7 @@ public class Account implements Serializable {
         this.updateAt = updateAt;
     }
 
-    public Account(String bankName, long numberAccount, long balance, boolean isActive) {
+    public Account(String bankName, long numberAccount, double balance, boolean isActive) {
         this.bankName = bankName;
         this.numberAccount = numberAccount;
         this.balance = balance;
@@ -68,11 +68,11 @@ public class Account implements Serializable {
         this.numberAccount = numberAccount;
     }
 
-    public long getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(long balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
