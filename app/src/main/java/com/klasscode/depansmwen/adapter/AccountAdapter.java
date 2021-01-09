@@ -143,6 +143,7 @@ public class AccountAdapter extends BaseAdapter {
                  String numberAc = txtNumberAccount.getText().toString().trim();
                  String balance = txBalance.getText().toString().trim();
 
+
                 if(!bankN.equals("") && !numberAc.equals("") && !balance.equals("")) {
                     DecimalFormat df = new DecimalFormat("0.00");
                     try {
@@ -155,7 +156,13 @@ public class AccountAdapter extends BaseAdapter {
                             account.setUpdateAt(date);
                             account.setIdUser(idUser);
                             account.setId(id);
-                           // Log.i("DATABASE","Cash : "+cash);
+                            if(radioActive.isChecked()){
+                                account.setActive(true);
+                            }
+                            if(radioInactive.isChecked()){
+                                account.setActive(false);
+                            }
+                            // Log.i("DATABASE","Cash : "+cash);
                             if(db.update(account)){
                                 Log.i("DATABASE","In update");
                                 accounts = (ArrayList) db.getAll( idUser );
@@ -174,7 +181,7 @@ public class AccountAdapter extends BaseAdapter {
                 }
             }
         });
-        
+
 
         Button cancel = (Button) layout.findViewById(R.id.btnCancelAccount);
         cancel.setOnClickListener(new View.OnClickListener() {
