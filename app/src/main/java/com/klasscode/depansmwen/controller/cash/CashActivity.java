@@ -45,7 +45,7 @@ public class CashActivity extends AppCompatActivity {
         listCash = (ListView) findViewById(R.id.listCash);
         user = (User)getIntent().getSerializableExtra( MainActivity.USER );
         dao = new CashDaoImpl(this);
-        cashs = (ArrayList<Cash>) dao.getAll( user.getId() );
+        cashs = (ArrayList<Cash>) dao.getAll( MainActivity.USERID );
         adapter = new CashListAdapter(this,cashs,dao);
         for(Cash cash: cashs){
             Log.i("DEBUG","Cash "+cash);
@@ -71,7 +71,7 @@ public class CashActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == FIRST_CALL_ID && resultCode == 200){
             Log.i("DEBUG","Callback On activity ok");
-            adapter.cashs= (ArrayList<Cash>) dao.getAll( user.getId() );
+            adapter.cashs= (ArrayList<Cash>) dao.getAll( MainActivity.USERID );
             ((BaseAdapter)listCash.getAdapter()).notifyDataSetChanged();
         }
     }

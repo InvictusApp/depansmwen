@@ -133,7 +133,7 @@ public class CashDaoImpl  extends SQLiteOpenHelper implements DatabaseManager<Ca
     public List<Cash> getAll( int id ) {
         List<Cash> cashes = new ArrayList<Cash>();
         SQLiteDatabase mDb = this.getReadableDatabase();
-        Cursor cursor = mDb.rawQuery( "SELECT * FROM " +TABLE_NAME+ " WHERE id = ?;",
+        Cursor cursor = mDb.rawQuery( "SELECT * FROM " +TABLE_NAME+ " WHERE id_user = ?;",
                 new String[]{ String.valueOf( id ) } );
         while ( cursor.moveToNext() ){
             cashes.add( map( cursor ) );

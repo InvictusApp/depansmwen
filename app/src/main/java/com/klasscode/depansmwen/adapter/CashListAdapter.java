@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.klasscode.depansmwen.Model.bean.Cash;
 import com.klasscode.depansmwen.Model.cash.CashDaoImpl;
 import com.klasscode.depansmwen.R;
+import com.klasscode.depansmwen.controller.MainActivity;
 import com.klasscode.depansmwen.controller.cash.AddCashActivity;
 
 import java.text.DecimalFormat;
@@ -73,7 +74,7 @@ public class CashListAdapter extends BaseAdapter {
             public void onClick(View v) {
                 Log.i("DEBUG","In Event delete in row ");
                 dao.delete(cashs.get(positionPopup));
-                cashs = (ArrayList) dao.getAll( positionPopup );
+                cashs = (ArrayList) dao.getAll(MainActivity.USERID);
                 Log.d("Country size", "" + cashs.size());
                 notifyDataSetChanged();
             }

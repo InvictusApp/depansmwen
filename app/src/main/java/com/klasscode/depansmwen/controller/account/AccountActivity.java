@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,12 +41,13 @@ public class AccountActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
        adao = new AccountDao(this);
-        user = (User) getIntent().getSerializableExtra( MainActivity.USER );
+        //user = (User) getIntent().getSerializableExtra( MainActivity.USER );
+
         mAddBtn = (Button) findViewById( R.id.add_account_btn );
 
         mListView = (ListView)findViewById(R.id.listAccount);
 
-        mAddBtn.setText( "Sir/Miss " +user.getUsername()+ " Ajouter un Compte" );
+        //mAddBtn.setText( "Sir/Miss " +user.getUsername()+ " Ajouter un Compte" );
         mAddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,18 +56,19 @@ public class AccountActivity extends Activity {
                 startActivityForResult(intent, IDENTITY_TO_ACCOUNT_ACTIVITY );
             }
         });
-        mAccountArrayList = (ArrayList)adao.getAll( user.getId() );
+        mAccountArrayList = (ArrayList)adao.getAll( MainActivity.USERID );
+
         mAccountAdapter = new AccountAdapter(this,mAccountArrayList,adao);
         mListView.setAdapter(mAccountAdapter);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       /* mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Toast.makeText(getApplicationContext(), "You Selected " + mAccountArrayList.get(position).getBankName() + " as Bank", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "You Selected " + mAccountArrayList.get(position).getBankName() + " as Country", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
                                      
-        //Toast.makeText(AccountActivity.this, "Size "+mAccountArrayList.size(), Toast.LENGTH_LONG).show();
+        Toast.makeText(AccountActivity.this, "Size "+mAccountArrayList.size()+"userId"+MainActivity.USERID, Toast.LENGTH_LONG).show();
 
        /*for (Account mAccount : mAccountArrayList) {
 

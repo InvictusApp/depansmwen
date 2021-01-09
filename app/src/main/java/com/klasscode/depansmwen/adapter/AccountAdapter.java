@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.klasscode.depansmwen.Model.account.AccountDao;
 import com.klasscode.depansmwen.Model.bean.Account;
 import com.klasscode.depansmwen.R;
+import com.klasscode.depansmwen.controller.MainActivity;
 
 import java.util.ArrayList;
 
@@ -82,7 +83,7 @@ public class AccountAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 db.delete(accounts.get(i));
-                accounts = (ArrayList)db.getAll( i );
+                accounts = (ArrayList)db.getAll(MainActivity.USERID);
                 Log.i("test delete element ", ""+accounts.size());
                 notifyDataSetChanged();
             }

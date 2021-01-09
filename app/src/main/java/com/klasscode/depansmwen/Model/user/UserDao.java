@@ -85,8 +85,8 @@ public class UserDao extends SQLiteOpenHelper implements DatabaseManager<User> {
                 + NUMBER_ACCOUNT + " LONG NOT NULL,"
                 + BALANCE + " double,"
                 + IS_ACTIVE + " TEXT,"
-                + CREATE_AT + " date,"
-                + UPDATE_AT + " date"
+                + CREATE_AT + " TEXT,"
+                + UPDATE_AT + " TEXT"
                 + ")";
         db.execSQL(create_table_account);
 

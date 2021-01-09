@@ -56,7 +56,7 @@ public class AddCashActivity extends AppCompatActivity {
                         Double mon = num.doubleValue();
                         if(mon!=0.0d){
                             Cash cash = new Cash();
-                            cash.setIdUser( user.getId() );
+                            cash.setIdUser( MainActivity.USERID );
                             cash.setDescription(d);
                             cash.setAmount(mon);
                             SimpleDateFormat dformat = new SimpleDateFormat("dd-MM-yyyy");
