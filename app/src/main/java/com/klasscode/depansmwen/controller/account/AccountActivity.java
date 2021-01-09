@@ -49,9 +49,6 @@ public class AccountActivity extends Activity {
         mAddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent intent = new Intent(AccountActivity.this, AddAccountActivity.class);
-                intent.putExtra( MainActivity.USER, user);
-                startActivity(intent);*/
                 Intent intent = new Intent(AccountActivity.this, AddAccountActivity.class);
                 intent.putExtra(MainActivity.USER, user);
                 startActivityForResult(intent, IDENTITY_TO_ACCOUNT_ACTIVITY );
