@@ -88,10 +88,11 @@ public class TransactionDao extends SQLiteOpenHelper implements DatabaseManager<
     public Transaction get(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_TRANSACTION,new String[]{KEY_ID,ID_ACCOUNT,TYPE,NUMBER_TRANSFER_ACCOUNT,AMOUNT,CREATE_AT,UPDATE_AT},
-                KEY_ID + " = ?", new String[]{String.valueOf(id)},null,null,null);
+                ID_ACCOUNT + " = ?", new String[]{String.valueOf(id)},null,null,null);
 
-        Transaction tr = new Transaction();
+        Transaction tr = null;
         if(cursor != null){
+            tr = new Transaction();
             cursor.moveToFirst();
             tr.setId(cursor.getInt(0));
             tr.setIdAccount(cursor.getInt(1));
@@ -117,8 +118,8 @@ public class TransactionDao extends SQLiteOpenHelper implements DatabaseManager<
     public List<Transaction> getAll( int id ) {
         List<Transaction> transactionList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        String sqlQuery = "SELECT * FROM " + TABLE_TRANSACTION;
-        Cursor cursor = db.rawQuery(sqlQuery, null);
+        String sqlQuery = "SELECT * FROM " + TABLE_TRANSACTION + " WHERE idAccount = ?";
+        Cursor cursor = db.rawQuery(sqlQuery, new String[]{String.valueOf(id)});
 
         if(cursor.moveToFirst()){
             do{

@@ -18,6 +18,7 @@ import com.klasscode.depansmwen.Model.account.AccountDao;
 import com.klasscode.depansmwen.Model.bean.Account;
 import com.klasscode.depansmwen.Model.bean.Cash;
 import com.klasscode.depansmwen.Model.bean.Transaction;
+import com.klasscode.depansmwen.Model.transaction.TransactionDao;
 import com.klasscode.depansmwen.R;
 import com.klasscode.depansmwen.controller.HomeAppActivity;
 import com.klasscode.depansmwen.controller.MainActivity;
@@ -33,6 +34,7 @@ public class AccountAdapter extends BaseAdapter {
     private Activity context;
     public ArrayList<Account> accounts;
     AccountDao db;
+    TransactionDao dbTr;
     BaseAdapter ba;
     private PopupWindow pwindowAccount;
     public AccountAdapter(Activity context, ArrayList<Account> accounts, AccountDao db) {
@@ -46,6 +48,7 @@ public class AccountAdapter extends BaseAdapter {
         TextView textViewNumberAccount;
         Button btnEdit;
         Button btnDelete;
+        Button btnList;
     }
     @Override
     public int getCount() {
@@ -74,6 +77,17 @@ public class AccountAdapter extends BaseAdapter {
             vh.textViewNumberAccount = (TextView)row.findViewById(R.id.txNumberAccount);
             vh.btnEdit = (Button)row.findViewById(R.id.btnEdit);
             vh.btnDelete = (Button)row.findViewById(R.id.btnDelete);
+            vh.btnList = (Button)row.findViewById(R.id.btnTransac);
+
+            dbTr = new TransactionDao(context);
+            Account ac = accounts.get(i);
+            //Log.i("TestAc", ""+ac.getId());
+            //Transaction tr = null;
+             ArrayList<Transaction> tr = (ArrayList)dbTr.getAll(ac.getId()+1);
+
+            if(tr.size() !=0){
+                vh.btnEdit.setEnabled(false);
+            }
 
             // store the holder with the view.
             row.setTag(vh);
@@ -84,6 +98,16 @@ public class AccountAdapter extends BaseAdapter {
         vh.textViewBankName.setText(accounts.get(i).getBankName());
         vh.textViewNumberAccount.setText(""+ accounts.get(i).getNumberAccount());
         final int positionPopup = i;
+        vh.btnList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i("Save: ", "" + positionPopup);
+                Intent intent = new Intent(context, Transaction.class);
+                //intent.putExtra( MainActivity.USER, user);
+                //intent.putExtra( "UserConnected", user);
+                context.startActivity(intent);
+            }
+        });
         vh.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -163,16 +187,16 @@ public class AccountAdapter extends BaseAdapter {
             }
         });
 
-        Button btnList = (Button) layout.findViewById(R.id.btnListTransac);
+        /*Button btnList = (Button) layout.findViewById(R.id.btnListTransac);
         btnList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, Transaction.class);
+                //Intent intent = new Intent(context, Transaction.class);
                 //intent.putExtra( MainActivity.USER, user);
                 //intent.putExtra( "UserConnected", user);
-                context.startActivity(intent);
+                //context.startActivity(intent);
             }
-        });
+        });*/
 
         Button cancel = (Button) layout.findViewById(R.id.btnCancelAccount);
         cancel.setOnClickListener(new View.OnClickListener() {
