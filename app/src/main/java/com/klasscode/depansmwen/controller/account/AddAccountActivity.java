@@ -17,6 +17,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AddAccountActivity extends Activity{
@@ -56,10 +58,13 @@ public class AddAccountActivity extends Activity{
                 String balance = mEditBalance.getText().toString();
 
                 if(!bankName.equals("") && !accountNumber.equals("") && !balance.equals("")){
-                        mAccount = new Account(user.getId(),bankName,Long.parseLong( accountNumber ),Double.parseDouble(balance),true);
+                    SimpleDateFormat dformat = new SimpleDateFormat("dd-MM-yyyy");
+                    String date = dformat.format(new Date());
+                        mAccount = new Account(user.getId(),bankName,Long.parseLong( accountNumber ),
+                                Double.parseDouble(balance),true, date, date );
                         //mAccount.setIdUser(user.getId());
-                    mAccount.setIdUser(1);
-                        //Log.i("Test",""+adao.insert(mAccount));
+                    //mAccount.setIdUser(1);
+                        Log.i("Test",""+adao.insert(mAccount));
                         if(adao.insert(mAccount)) {
                             Toast.makeText(AddAccountActivity.this, getString(R.string.msg_AccountInsert), Toast.LENGTH_LONG).show();
                         }

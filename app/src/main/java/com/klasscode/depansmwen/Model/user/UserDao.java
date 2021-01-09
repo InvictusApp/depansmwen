@@ -153,7 +153,7 @@ public class UserDao extends SQLiteOpenHelper implements DatabaseManager<User> {
     }
 
     @Override
-    public List<User> getAll() {
+    public List<User> getAll( int id ) {
         return null;
     }
 

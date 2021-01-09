@@ -10,7 +10,7 @@ public interface DatabaseManager<T> {
     boolean insert(T t);
     boolean update(T t);
     T get(int id);
-    List<T> getAll();
+    List<T> getAll( int id );
     boolean delete(T t);
 
 

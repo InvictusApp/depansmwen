@@ -22,6 +22,7 @@ import com.klasscode.depansmwen.Model.bean.User;
 import com.klasscode.depansmwen.Model.cash.CashDaoImpl;
 import com.klasscode.depansmwen.R;
 import com.klasscode.depansmwen.adapter.CashListAdapter;
+import com.klasscode.depansmwen.controller.MainActivity;
 
 import java.util.ArrayList;
 
@@ -33,6 +34,7 @@ public class CashActivity extends AppCompatActivity {
     private CashDaoImpl dao;
     private ArrayList<Cash> cashs;
     private CashListAdapter adapter;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +43,9 @@ public class CashActivity extends AppCompatActivity {
 
         btnAddCash = (Button) findViewById(R.id.btnAddCash);
         listCash = (ListView) findViewById(R.id.listCash);
-        User user = (User)getIntent().getSerializableExtra("UserConnected");
+        user = (User)getIntent().getSerializableExtra( MainActivity.USER );
         dao = new CashDaoImpl(this);
-        cashs = (ArrayList<Cash>) dao.getAll();
+        cashs = (ArrayList<Cash>) dao.getAll( user.getId() );
         adapter = new CashListAdapter(this,cashs,dao);
         for(Cash cash: cashs){
             Log.i("DEBUG","Cash "+cash);
@@ -56,7 +58,7 @@ public class CashActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(CashActivity.this, AddCashActivity.class);
-                intent.putExtra("UserConnected",user);
+                intent.putExtra(MainActivity.USER, user);
                 startActivityForResult(intent,FIRST_CALL_ID);
 
             }
@@ -69,7 +71,7 @@ public class CashActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == FIRST_CALL_ID && resultCode == 200){
             Log.i("DEBUG","Callback On activity ok");
-            adapter.cashs= (ArrayList<Cash>) dao.getAll();
+            adapter.cashs= (ArrayList<Cash>) dao.getAll( user.getId() );
             ((BaseAdapter)listCash.getAdapter()).notifyDataSetChanged();
         }
     }

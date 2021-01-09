@@ -53,10 +53,11 @@ public class AccountActivity extends Activity {
                 intent.putExtra( MainActivity.USER, user);
                 startActivity(intent);*/
                 Intent intent = new Intent(AccountActivity.this, AddAccountActivity.class);
+                intent.putExtra(MainActivity.USER, user);
                 startActivityForResult(intent, IDENTITY_TO_ACCOUNT_ACTIVITY );
             }
         });
-        mAccountArrayList = (ArrayList)adao.getAll();
+        mAccountArrayList = (ArrayList)adao.getAll( user.getId() );
         mAccountAdapter = new AccountAdapter(this,mAccountArrayList,adao);
         mListView.setAdapter(mAccountAdapter);
 
