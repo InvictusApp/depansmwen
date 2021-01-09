@@ -112,7 +112,7 @@ public class CashListAdapter extends BaseAdapter {
         pwindo = new PopupWindow(layout, 600, 600, true);
         pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
         final EditText txtMontant = (EditText) layout.findViewById(R.id.textMontant);
-        final EditText txtDescription = (EditText) layout.findViewById(R.id.textDescription);
+        final EditText txtDescription = (EditText) layout.findViewById(R.id.txtDescription);
         final TextView lblMessage = (TextView) layout.findViewById(R.id.lblMessage);
 
         txtMontant.setText(""+cashs.get(positionPopup).getAmount());

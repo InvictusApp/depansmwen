@@ -29,7 +29,7 @@
                 android:paddingEnd="6.18dp"
                 android:text="Unibank"
                 android:textAllCaps="true"
-                android:textColor="@color/secondary"
+                android:textColor="@color/gray"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:background="@color/white"
@@ -64,8 +64,8 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_delete"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:tint="@color/white"
-                android:layout_marginTop="16.18px"/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
