@@ -1,7 +1,6 @@
 package com.klasscode.depansmwen.adapter;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -10,25 +9,24 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.klasscode.depansmwen.Model.account.AccountDao;
 import com.klasscode.depansmwen.Model.bean.Account;
-import com.klasscode.depansmwen.Model.bean.Cash;
 import com.klasscode.depansmwen.Model.bean.Transaction;
 import com.klasscode.depansmwen.Model.transaction.TransactionDao;
 import com.klasscode.depansmwen.R;
-import com.klasscode.depansmwen.controller.HomeAppActivity;
 import com.klasscode.depansmwen.controller.MainActivity;
-import com.klasscode.depansmwen.controller.account.AccountActivity;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class AccountAdapter extends BaseAdapter {
     private Activity context;
@@ -46,8 +44,8 @@ public class AccountAdapter extends BaseAdapter {
     {
         TextView textViewBankName;
         TextView textViewNumberAccount;
-        Button btnEdit;
-        Button btnDelete;
+        ConstraintLayout btnEdit;
+        ImageView btnDelete;
         Button btnList;
     }
     @Override
@@ -75,9 +73,9 @@ public class AccountAdapter extends BaseAdapter {
             row = inflater.inflate(R.layout.row_account_item,null,true);
             vh.textViewBankName = (TextView)row.findViewById(R.id.txBankName);
             vh.textViewNumberAccount = (TextView)row.findViewById(R.id.txNumberAccount);
-            vh.btnEdit = (Button)row.findViewById(R.id.btnEdit);
-            vh.btnDelete = (Button)row.findViewById(R.id.btnDelete);
-            vh.btnList = (Button)row.findViewById(R.id.btnTransac);
+            vh.btnEdit = (ConstraintLayout)row.findViewById(R.id.btnEdit);
+            vh.btnDelete = (ImageView)row.findViewById(R.id.btnDelete);
+           // vh.btnList = (Button)row.findViewById(R.id.btnTransac);
 
             dbTr = new TransactionDao(context);
             Account ac = accounts.get(i);
@@ -98,16 +96,16 @@ public class AccountAdapter extends BaseAdapter {
         vh.textViewBankName.setText(accounts.get(i).getBankName());
         vh.textViewNumberAccount.setText(""+ accounts.get(i).getNumberAccount());
         final int positionPopup = i;
-        vh.btnList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i("Save: ", "" + positionPopup);
-                Intent intent = new Intent(context, Transaction.class);
-                //intent.putExtra( MainActivity.USER, user);
-                //intent.putExtra( "UserConnected", user);
-                context.startActivity(intent);
-            }
-        });
+//        vh.btnList.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Log.i("Save: ", "" + positionPopup);
+//                Intent intent = new Intent(context, Transaction.class);
+//                //intent.putExtra( MainActivity.USER, user);
+//                //intent.putExtra( "UserConnected", user);
+//                context.startActivity(intent);
+//            }
+//        });
         vh.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

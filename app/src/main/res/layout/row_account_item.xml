@@ -8,7 +8,6 @@
         android:id="@+id/layout_container1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:layout_marginTop="22dp"
         android:background="@drawable/tertiary_color_rectangle_background"
         android:orientation="horizontal"
@@ -68,31 +67,6 @@
                 app:tint="@color/white" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-=======
-        android:orientation="vertical">
-       <LinearLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content">
-           <Button
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:id="@+id/btnEdit"
-               android:text="Edit"
-               />
-
-           <Button
-               android:id="@+id/btnTransac"
-               android:layout_width="wrap_content"
-               android:text="Transaction"
-               android:layout_height="wrap_content"/>
-       </LinearLayout>
-        <Button
-            android:id="@+id/btnDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Delete" />
-
->>>>>>> f0491e18c1b9b1987b785c6ea31279cf3960cb57
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
