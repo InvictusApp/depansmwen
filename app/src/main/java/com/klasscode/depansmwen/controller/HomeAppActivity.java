@@ -30,7 +30,7 @@ public class HomeAppActivity extends AppCompatActivity {
 
         btnCash = findViewById(R.id.btnCash);
         btnCompte = findViewById(R.id.btnCompte);
-        btnTransaction = findViewById( R.id.btnTransaction );
+        //btnTransaction = findViewById( R.id.btnTransaction );
 
         //btnCompte.setText( btnCompte.getText().toString()+ "cmp" +user.getUsername() );
         btnCompte.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +55,7 @@ public class HomeAppActivity extends AppCompatActivity {
             }
         });
 
-        btnTransaction.setOnClickListener(new View.OnClickListener() {
+        /*btnTransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -64,6 +64,6 @@ public class HomeAppActivity extends AppCompatActivity {
                 //intent.putExtra( "UserConnected", user);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 }
