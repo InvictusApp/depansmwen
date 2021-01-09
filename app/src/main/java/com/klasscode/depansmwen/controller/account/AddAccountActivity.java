@@ -8,6 +8,7 @@ import com.klasscode.depansmwen.adapter.AccountAdapter;
 import com.klasscode.depansmwen.controller.HomeAppActivity;
 import com.klasscode.depansmwen.controller.MainActivity;
 import com.klasscode.depansmwen.controller.SignUpActivity;
+import com.klasscode.depansmwen.controller.cash.AddCashActivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -64,6 +65,9 @@ public class AddAccountActivity extends Activity{
                         //Log.i("Test",""+adao.insert(mAccount));
                         if(adao.insert(mAccount)) {
                             Toast.makeText(AddAccountActivity.this, getString(R.string.msg_AccountInsert), Toast.LENGTH_LONG).show();
+                            //Inform the list view the change of cash
+                            setResult(200);
+                            AddAccountActivity.this.finish();
                         }
                         //Log.i("Test","BankName " + mAccount.getBankName() + " number "+mAccount.getNumberAccount() + " Balance " + mAccount.getBalance() + "UserId "+ mAccount.getIdUser());
                 }else{

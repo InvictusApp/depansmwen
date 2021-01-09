@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,7 @@ import com.klasscode.depansmwen.Model.cash.CashDaoImpl;
 import com.klasscode.depansmwen.R;
 import com.klasscode.depansmwen.adapter.CashListAdapter;
 import com.klasscode.depansmwen.controller.MainActivity;
+import com.klasscode.depansmwen.controller.account.AccountActivity;
 
 import java.util.ArrayList;
 
@@ -63,6 +65,13 @@ public class CashActivity extends AppCompatActivity {
 
             }
         });
+
+       /* listCash.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(CashActivity.this, MainActivity.USERID, Toast.LENGTH_LONG).show();
+            }
+        });*/
 
     }
 
