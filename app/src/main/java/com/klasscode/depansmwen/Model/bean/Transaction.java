@@ -10,13 +10,13 @@ public class Transaction implements Serializable {
     private String type;
     private long numberTransferAccount;
     private long amount;
-    private Date createAt;
-    private Date updateAt;
+    private String createAt;
+    private String updateAt;
 
     public Transaction() {
     }
 
-    public Transaction(int id, int idAccount, String type, long numberTransferAccount, long amount, Date createAt, Date updateAt) {
+    public Transaction(int id, int idAccount, String type, long numberTransferAccount, long amount, String createAt, String updateAt) {
         this.id = id;
         this.idAccount = idAccount;
         this.type = type;
@@ -73,19 +73,19 @@ public class Transaction implements Serializable {
         this.amount = amount;
     }
 
-    public Date getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 
-    public Date getUpdateAt() {
+    public String getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
+    public void setUpdateAt(String updateAt) {
         this.updateAt = updateAt;
     }
 }

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".controller.cash.AddCashActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/header_background"
+        android:padding="15dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="33.618dp"
+            android:layout_marginStart="33.618dp"
+            android:gravity="center"
+            android:text="@string/add_cash"
+            android:textColor="@color/white"
+            android:textSize="16.18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/logo_bw_depans_mwen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="26.18dp"
+        android:contentDescription="@string/b_w_logo_depansmwen" />
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutHeader">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="26.18dp"
+            app:layout_constraintTop_toBottomOf="@id/layoutHeader">
+
+            <TextView
+                android:id="@+id/cash_add_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/cash_add_description"
+                android:textSize="16.18sp"
+                android:textStyle="bold"
+                android:textColor="@color/secondary"
+                android:textAllCaps="true"
+                android:paddingTop="16.18dp"/>
+
+            <EditText
+                android:id="@+id/txtDescription"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="start"
+                android:padding="6.18dp"
+                android:background="@drawable/r_c_s_background"
+                android:inputType="textMultiLine"
+                app:layout_constraintTop_toBottomOf="@id/cash_add_description"
+                android:autofillHints="Description"
+                tools:ignore="LabelFor"
+                />
+
+            <TextView
+                android:id="@+id/cash_add_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/txtDescription"
+                android:text="@string/cash_add_amount"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/secondary"
+                android:textAllCaps="true"
+                android:paddingTop="16.18dp"/>
+
+            <EditText
+                android:id="@+id/txtAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6.18dp"
+                android:background="@drawable/r_c_s_background"
+                android:inputType="numberDecimal"
+                app:layout_constraintTop_toBottomOf="@id/cash_add_amount"
+                android:autofillHints="Montant"
+                tools:ignore="LabelFor" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_button"
+                android:text="@string/btn_save"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/txtAmount"
+                tools:layout_editor_absoluteX="0dp"
+                android:textAllCaps="true"
+                android:textSize="16.18sp"
+                android:layout_marginTop="18.618dp"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,14 +4,20 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo"
+        android:icon="@drawable/logo_depans_mwen"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logo"
+        android:roundIcon="@drawable/logo_depans_mwen"
         android:supportsRtl="true"
         android:theme="@style/Theme.DepansMwen">
-        <activity android:name=".HomeAppActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".controller.transaction.AddTransactionActivity"></activity>
+        <activity android:name=".controller.transaction.TransactionActivity" />
+        <activity android:name=".controller.account.AddAccountActivity" />
+        <activity android:name=".controller.cash.AddCashActivity" />
+        <activity android:name=".controller.cash.CashActivity" />
+        <activity android:name=".controller.account.AccountActivity" />
+        <activity android:name=".controller.HomeAppActivity" />
+        <activity android:name=".controller.SignUpActivity" />
+        <activity android:name=".controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

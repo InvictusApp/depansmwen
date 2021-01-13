@@ -5,21 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".controller.MainActivity">
 
 <TextView
     android:id="@+id/textTitle"
     android:layout_width="match_parent"
-    android:layout_height="?actionBarSize"
-    android:background="@color/primary"
+    android:layout_height="wrap_content"
+    android:background="@drawable/header_background"
+    android:padding="25dp"
     android:gravity="center_vertical"
-    android:paddingStart="10dp"
-    android:paddingEnd="10dp"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
     android:text = "@string/app_name"
     android:textColor="@color/white"
-    android:textSize="20sp"
+    android:textSize="22.618sp"
+    android:textAlignment="center"
     app:layout_constraintTop_toTopOf="parent"
-    />
+    tools:ignore="RtlCompat"
+    android:textStyle="bold"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -36,26 +39,26 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="50dp"
+                android:layout_width="126.18dp"
+                android:layout_height="126.18dp"
+                android:layout_marginTop="30dp"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/logo" />
+                android:src="@drawable/logo_depans_mwen" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="@string/slogan"
                 android:textColor="@color/primary"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textSize="12.618sp"
+                android:textStyle="italic" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/text_sign_in"
-                android:textColor="@color/accent"
+                android:textColor="@color/secondary"
                 android:textSize="18sp" />
 
 
@@ -69,7 +72,7 @@
                     android:id="@+id/pseudoZone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="30dp"
                     android:background="@drawable/bg_input"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
@@ -82,7 +85,7 @@
                         android:layout_marginLeft="10dp"
                         android:contentDescription="@string/app_name"
                         android:src="@drawable/ic_account_circle"
-                        app:tint="@color/accent" />
+                        app:tint="@color/secondary" />
                     <EditText
                         android:id="@+id/txtPseudo"
                         android:layout_width="match_parent"
@@ -145,7 +148,7 @@
                         android:layout_marginLeft="10dp"
                         android:contentDescription="@string/app_name"
                         android:src="@drawable/ic_lock"
-                        app:tint="@color/accent" />
+                        app:tint="@color/secondary" />
                     <EditText
                         android:id="@+id/txtPassword"
                         android:layout_width="match_parent"
@@ -194,7 +197,8 @@
                 android:text="@string/text_sign_in"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -218,7 +222,7 @@
                     android:text="@string/create_a_new_account"
                     android:textSize="17sp"
                     android:textStyle="bold"
-                    android:textColor="@color/primary_dark"
+                    android:textColor="@color/secondary"
                     android:layout_marginLeft="4dp" />
 
             </LinearLayout>
